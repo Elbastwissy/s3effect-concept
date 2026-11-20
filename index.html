@@ -2,28 +2,31 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070708">
 <meta name="robots" content="noindex">
 <meta name="description" content="Design concept for S3EFFECT — not the official site.">
 <title>S3EFFECT — Push. Beyond</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter+Tight:wght@400;500;600;800&family=Alexandria:wght@600;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter+Tight:wght@400;500;600;700;800&family=Alexandria:wght@600;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* VOICE: an Instagram sports-nutrition reel — loud, fast, confident, then precise when you shop.
-   IDEA: the page behaves like a feed: a story reel up top, ticker tapes, reel-card goals, drops of real products.
-   PICTURE: S3's own chains hero and their real tubs, cut out, slamming in, spinning and stacking.
-   COLOUR+TYPE: S3 black, S3 red, steel white · Anton for shouting, Inter Tight for reading (Alexandria / Plex Arabic in Arabic).
-   LAYOUT: reel + giant headline, tapes, goal reels, stack builder, coach, product drops, promise, S3 Black, footer tape. */
-:root{color-scheme:dark;--bg:#070708;--bg2:#101012;--card:#151518;--line:#26262b;--ink:#f6f6f7;--mute:#a3a3ad;--red:#e3101e;--red2:#ff3341;--steel:#d5d8de;
+/* VOICE: an Instagram sports-nutrition reel up top, a premium shopping app underneath.
+   IDEA: the page behaves like a feed with a checkout: stories, highlights, product tags, a bag screen and a printed bag summary.
+   PICTURE: S3's chains hero and their real tubs, cut out — slamming in, flying into the bag, stacking.
+   COLOUR+TYPE: S3 black, S3 red for action, steel white · Anton shouts, Inter Tight reads (Alexandria / Plex Arabic in Arabic).
+   LAYOUT: reel + headline, highlights, tapes, goal reels, stack builder, coach, the drop, promise, S3 Black, footer tape, bag bar. */
+:root{color-scheme:dark;--bg:#070708;--bg2:#101012;--card:#151518;--line:#26262b;--ink:#f6f6f7;--mute:#a3a3ad;--red:#e3101e;--red2:#ff3341;--steel:#d5d8de;--sb:env(safe-area-inset-bottom,0px);
 --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
 *{box-sizing:border-box;min-width:0}
-html{scroll-padding-top:84px}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Inter Tight",system-ui,sans-serif;overflow-x:clip}
+html{scroll-padding-top:84px;scroll-padding-bottom:96px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html.lock{overflow:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Inter Tight",system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
 html[lang=ar] body{font-family:"IBM Plex Sans Arabic",system-ui,sans-serif}
 a{color:inherit}img{display:block;max-width:100%}
+a,button,input,label{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .ar{display:none}html[lang=ar] .ar{display:revert}html[lang=ar] .en{display:none}
 h1,h2,h3{margin:0;line-height:.95;text-wrap:balance;font-weight:400}
-.d{font-family:Anton,Impact,sans-serif;text-transform:uppercase;letter-spacing:.005em}
+.d{font-family:Anton,Impact,"Arial Narrow",sans-serif;text-transform:uppercase}
 html[lang=ar] .d{font-family:Alexandria,sans-serif;font-weight:800;line-height:1.15;text-transform:none}
 h2.d{font-size:clamp(40px,7vw,96px)}
 h3{font-family:"Inter Tight",sans-serif;font-weight:800;font-size:19px;line-height:1.2}
@@ -31,112 +34,110 @@ html[lang=ar] h3{font-family:Alexandria,sans-serif}
 p{margin:0}
 .wrap{max-width:1280px;margin:0 auto;padding:0 max(4.5vw,16px)}
 .band{padding:clamp(48px,7vw,104px) 0;background-image:var(--grain)}
-.lead{color:var(--mute);font-size:17.5px;max-width:58ch;margin-top:14px}
+.lead{color:var(--mute);font-size:17px;max-width:58ch;margin-top:14px}
 .outline{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
 .red{color:var(--red)}
 button{font:inherit;color:inherit;cursor:pointer}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;font-weight:700;text-decoration:none;white-space:nowrap;transition:transform .2s,background .2s,color .2s}
-.btn:hover{background:var(--ink);color:var(--bg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;font-weight:700;text-decoration:none;white-space:nowrap;transition:transform .15s,background .2s,color .2s}
+.btn:active{transform:scale(.97)}
 .btn.r{background:var(--red);border-color:var(--red);color:#fff}
-.btn.r:hover{background:var(--red2);border-color:var(--red2);color:#fff;transform:translateY(-2px)}
-.btn .arw{display:inline-block;transition:transform .25s}.btn:hover .arw{transform:translateX(4px)}
-html[dir=rtl] .arw{transform:scaleX(-1)}html[dir=rtl] .btn:hover .arw{transform:scaleX(-1) translateX(4px)}
+.btn.w{background:#fff;border-color:#fff;color:#000}
+.btn.full{width:100%}
+.arw{display:inline-block;transition:transform .25s}
+html[dir=rtl] .arw{transform:scaleX(-1)}
+@media(hover:hover){.btn:hover{background:var(--ink);color:var(--bg)}.btn.r:hover{background:var(--red2);border-color:var(--red2);color:#fff}.btn:hover .arw{transform:translateX(4px)}html[dir=rtl] .btn:hover .arw{transform:scaleX(-1) translateX(4px)}}
 :focus-visible{outline:2px solid var(--red2);outline-offset:3px}
+.note{color:var(--mute);font-size:13px}
+.price{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700}
 /* tapes */
-.tape{overflow:hidden;white-space:nowrap;border-block:1px solid var(--line);background:var(--red);color:#fff}
-.tape .run{display:inline-flex;gap:28px;padding:9px 0;animation:run 28s linear infinite;font-weight:700;font-size:13.5px;letter-spacing:.04em;text-transform:uppercase}
+.tape{overflow:hidden;white-space:nowrap;background:var(--red);color:#fff;contain:paint}
+.run{display:inline-flex;will-change:transform}
+.tape .run{gap:28px;padding:9px 0;animation:run 28s linear infinite;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
 .tape .run span::after{content:"✦";margin-inline-start:28px;opacity:.7}
 @keyframes run{to{transform:translateX(-50%)}}
-html[dir=rtl] .tape .run,html[dir=rtl] .brands .run{animation-name:runr}@keyframes runr{to{transform:translateX(50%)}}
-.brands{overflow:hidden;white-space:nowrap;padding:22px 0;border-bottom:1px solid var(--line)}
-.brands .run{display:inline-flex;gap:46px;animation:run 40s linear infinite;font-family:Anton,sans-serif;font-size:clamp(34px,5vw,64px);text-transform:uppercase}
+html[dir=rtl] .run{animation-name:runr}@keyframes runr{to{transform:translateX(50%)}}
+.idle .run,.idle .gc img,.idle .dot,.idle .swap b{animation-play-state:paused}
+.brands{overflow:hidden;white-space:nowrap;padding:22px 0;border-block:1px solid var(--line);contain:paint}
+.brands .run{gap:46px;animation:run 40s linear infinite;font-family:Anton,sans-serif;font-size:clamp(34px,5vw,64px);text-transform:uppercase}
 .brands .run span:nth-child(odd){color:transparent;-webkit-text-stroke:1.2px #6b6b74}
 /* header */
 header{position:sticky;top:0;z-index:5;background:#070708;border-bottom:1px solid var(--line)}
-.hd{display:flex;align-items:center;gap:10px;height:66px}
-.hd .logo{height:36px;width:auto}
+.hd{display:flex;align-items:center;gap:10px;height:62px}
+.hd .logo{height:34px;width:auto}
 .hd .sp{flex:1}
-.nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}
+.nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;overscroll-behavior-x:contain}.nav::-webkit-scrollbar{display:none}
 .nav a{flex:none;padding:10px 12px;text-decoration:none;color:var(--mute);font-size:14.5px;font-weight:600;border-radius:8px}
-.nav a:hover{color:var(--ink)}
-.icon{min-width:44px;min-height:44px;border-radius:999px;border:1px solid var(--line);background:transparent;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 14px;font-weight:700}
-.count{background:var(--red);color:#fff;border-radius:999px;font-size:12px;min-width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;padding:0 5px}
-.count.bump{animation:bump .4s}@keyframes bump{40%{transform:scale(1.5)}}
+.icon{position:relative;min-width:44px;min-height:44px;border-radius:999px;border:1px solid var(--line);background:transparent;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 14px;font-weight:700}
+.bagic{width:20px;height:20px}
+.count{background:var(--red);color:#fff;border-radius:999px;font-size:12px;min-width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;padding:0 5px;font-variant-numeric:tabular-nums}
+.bump{animation:bump .45s cubic-bezier(.2,1.8,.4,1)}@keyframes bump{40%{transform:scale(1.35)}}
 .nav2{display:none;border-top:1px solid var(--line)}
 @media(max-width:900px){.hd .nav{display:none}.nav2{display:block}}
-/* cart in flow */
-#cart{display:none;border-bottom:1px solid var(--line);background:var(--bg2)}#cart.open{display:block}
-.cartin{padding-block:20px;display:grid;gap:12px}
-.cline{display:grid;grid-template-columns:60px 1fr auto;gap:12px;align-items:center}
-.cline img{width:60px;height:60px;object-fit:contain}
-.qty{display:flex;align-items:center;gap:6px}.qty button{width:36px;height:36px;border-radius:999px;border:1px solid var(--line);background:none}
-.total{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:12px;font-weight:700}
-.price{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700}
-.note{color:var(--mute);font-size:13px}
 /* hero */
-.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,64px);align-items:center;padding-block:clamp(24px,4vw,56px)}
-.hero h1{font-size:clamp(64px,10.5vw,168px);line-height:.86}
-html[lang=ar] .hero h1{font-size:clamp(46px,7vw,100px);line-height:1.1}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,64px);align-items:center;padding-block:clamp(20px,4vw,56px)}
+.hero h1{font-size:clamp(60px,10.5vw,164px);line-height:.86}
+html[lang=ar] .hero h1{font-size:clamp(44px,7vw,100px);line-height:1.1}
 .swap{display:inline-grid;vertical-align:bottom;height:.86em;overflow:hidden}
 .swap b{grid-area:1/1;font-weight:400;color:var(--red);animation:swap 10s infinite;transform:translateY(110%)}
 .swap b:nth-child(2){animation-delay:2.5s}.swap b:nth-child(3){animation-delay:5s}.swap b:nth-child(4){animation-delay:7.5s}
 @keyframes swap{0%{transform:translateY(110%)}4%,23%{transform:translateY(0)}27%,100%{transform:translateY(-110%)}}
 html[lang=ar] .swap{height:1.15em}
-.hero .kick{display:flex;gap:10px;align-items:center;color:var(--steel);font-weight:600;font-size:14px;margin-bottom:18px}
-.dot{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 var(--red);animation:ping 1.8s infinite}
-@keyframes ping{70%{box-shadow:0 0 0 10px transparent}}
-.ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.kick{display:flex;gap:10px;align-items:center;color:var(--steel);font-weight:600;font-size:14px;margin-bottom:18px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--red);animation:ping 1.8s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(227,16,30,.8)}70%,100%{box-shadow:0 0 0 10px rgba(227,16,30,0)}}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 /* reel */
-.reel{position:relative;aspect-ratio:9/16;max-height:82vh;width:100%;max-width:430px;justify-self:center;border-radius:28px;overflow:hidden;background:#120507;box-shadow:0 0 0 1px #2c1013,0 50px 100px -40px rgba(227,16,30,.6);user-select:none;-webkit-user-select:none;touch-action:manipulation}
-.bars{position:absolute;inset-inline:12px;top:12px;display:flex;gap:5px;z-index:4}
+.reel{position:relative;aspect-ratio:9/16;max-height:80vh;max-height:80svh;width:100%;max-width:430px;justify-self:center;border-radius:28px;overflow:hidden;background:#120507;box-shadow:0 0 0 1px #2c1013,0 50px 100px -40px rgba(227,16,30,.6);user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;contain:layout paint}
+.bars{position:absolute;inset-inline:12px;top:12px;display:flex;gap:5px;z-index:5}
 .bars i{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.3);overflow:hidden}
-.bars i b{display:block;height:100%;width:0;background:#fff}
-html[dir=rtl] .bars{flex-direction:row-reverse}
-.rhead{position:absolute;top:24px;inset-inline:14px;display:flex;align-items:center;gap:8px;z-index:4;font-size:13px;font-weight:700}
+.bars i b{display:block;height:100%;background:#fff;transform:scaleX(0);transform-origin:left}
+html[dir=rtl] .bars i b{transform-origin:right}
+.rhead{position:absolute;top:24px;inset-inline:14px;display:flex;align-items:center;gap:8px;z-index:5;font-size:13px;font-weight:700}
 .rhead img{width:30px;height:30px;border-radius:50%;background:#000;object-fit:contain;border:1.5px solid var(--red)}
 .rhead small{color:rgba(255,255,255,.7);font-weight:500}
 .scene{position:absolute;inset:0;display:none;overflow:hidden;background-image:var(--grain)}
 .scene.on{display:block}
-.tap{position:absolute;top:0;bottom:0;width:34%;z-index:3;background:none;border:0;padding:0}
+.tap{position:absolute;top:0;bottom:0;width:30%;z-index:3;background:none;border:0;padding:0}
 .tap.l{left:0}.tap.r{right:0}
-.rcta{position:absolute;bottom:16px;inset-inline:16px;z-index:4;display:flex;justify-content:center}
+.rcta{position:absolute;bottom:16px;inset-inline:16px;z-index:5;display:flex;justify-content:center}
 .rcta a{background:#fff;color:#000;border-radius:999px;padding:11px 20px;font-weight:800;font-size:14px;text-decoration:none}
-.paused .bars i b{opacity:.5}
-/* scene 1 */
+.ptag{position:absolute;z-index:4;display:flex;align-items:center;gap:8px;background:rgba(10,10,11,.82);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:7px 10px 7px 8px;font-size:12.5px;font-weight:700;line-height:1.2;animation:pop .45s cubic-bezier(.2,1.8,.4,1) 1s both;text-align:start;max-width:62%}
+.ptag::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.3);animation:tagp 1.6s infinite}
+@keyframes tagp{50%{box-shadow:0 0 0 7px rgba(255,255,255,0)}}
+.ptag small{display:block;font-weight:600;color:rgba(255,255,255,.75)}
+.ptag i{font-style:normal;background:var(--red);border-radius:8px;padding:4px 8px;margin-inline-start:4px}
 .s1 .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%;animation:kb 3.2s ease-out both}
 @keyframes kb{from{transform:scale(1.25)}to{transform:scale(1.02)}}
-.s1 .big{position:absolute;inset-inline:18px;top:18%;font-family:Anton,sans-serif;font-size:clamp(70px,22vw,118px);line-height:.85;text-transform:uppercase;text-shadow:0 6px 30px rgba(0,0,0,.6)}
+.s1 .big{position:absolute;inset-inline:18px;top:18%;font-family:Anton,sans-serif;font-size:clamp(66px,21vw,116px);line-height:.85;text-transform:uppercase;text-shadow:0 6px 30px rgba(0,0,0,.6)}
 .s1 .big span{display:block;animation:slam .5s cubic-bezier(.2,1.6,.4,1) both}
 .s1 .big span:nth-child(2){animation-delay:.35s;color:transparent;-webkit-text-stroke:2px #fff}
-@keyframes slam{from{transform:scale(1.8) rotate(-4deg);opacity:0;filter:blur(8px)}to{transform:none;opacity:1;filter:none}}
-/* product scene */
+@keyframes slam{from{transform:scale(1.8) rotate(-4deg);opacity:0}to{transform:none;opacity:1}}
 .sp{background:radial-gradient(90% 60% at 50% 55%,#ff2a37 0%,#b0000d 45%,#2a0003 100%)}
 .sp.k{background:radial-gradient(90% 60% at 50% 55%,#3a3a42 0%,#141416 55%,#050505 100%)}
-.giant{position:absolute;top:22%;left:0;white-space:nowrap;font-family:Anton,sans-serif;font-size:clamp(120px,40vw,200px);line-height:1;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.55);animation:slide 3.4s linear both}
+.giant{position:absolute;top:22%;left:0;white-space:nowrap;font-family:Anton,sans-serif;font-size:clamp(120px,40vw,200px);line-height:1;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.55);animation:slide 3.6s linear both}
 .giant.f{top:auto;bottom:22%;-webkit-text-stroke:0;color:rgba(0,0,0,.25);animation-direction:reverse}
 @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-45%)}}
-.hero-prod{position:absolute;left:50%;top:52%;width:66%;transform:translate(-50%,-50%);filter:drop-shadow(0 30px 30px rgba(0,0,0,.55));animation:drop .9s cubic-bezier(.2,1.5,.4,1) both,bob 2.6s ease-in-out .9s infinite}
-@keyframes drop{from{transform:translate(-50%,-160%) rotate(-25deg) scale(.7)}to{transform:translate(-50%,-50%) rotate(0)}}
-@keyframes bob{50%{transform:translate(-50%,-53%) rotate(2deg)}}
-.sticker{position:absolute;inset-inline-end:8%;top:30%;background:#fff;color:#000;border-radius:16px;padding:10px 14px;font-weight:800;transform:rotate(8deg);animation:pop .5s cubic-bezier(.2,1.8,.4,1) .7s both;box-shadow:0 10px 30px rgba(0,0,0,.35);text-align:center;line-height:1.1}
+.hero-prod{position:absolute;left:17%;top:26%;width:66%;filter:drop-shadow(0 30px 30px rgba(0,0,0,.55));animation:drop .9s cubic-bezier(.2,1.5,.4,1) both,bob 2.6s ease-in-out .9s infinite}
+@keyframes drop{from{transform:translateY(-120%) rotate(-25deg) scale(.7)}to{transform:none}}
+@keyframes bob{50%{transform:translateY(-3%) rotate(2deg)}}
+.sticker{position:absolute;inset-inline-end:7%;top:22%;background:#fff;color:#000;border-radius:16px;padding:10px 14px;font-weight:800;transform:rotate(8deg);animation:pop .5s cubic-bezier(.2,1.8,.4,1) .7s both;box-shadow:0 10px 30px rgba(0,0,0,.35);text-align:center;line-height:1.1;z-index:2}
 .sticker small{display:block;font-size:11px;font-weight:600;color:#555;margin-bottom:3px}
-@keyframes pop{from{transform:scale(0) rotate(-30deg)}to{transform:scale(1) rotate(8deg)}}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.sticker{--r:8deg}.sticker{animation-name:popr}@keyframes popr{from{transform:scale(0) rotate(-30deg)}to{transform:scale(1) rotate(8deg)}}
 .cap{position:absolute;bottom:78px;inset-inline:18px;font-family:Anton,sans-serif;font-size:30px;line-height:1;text-transform:uppercase;animation:up .5s .5s both}
 html[lang=ar] .cap{font-family:Alexandria,sans-serif;font-weight:800;font-size:24px;line-height:1.3}
 @keyframes up{from{transform:translateY(30px);opacity:0}}
-/* fan */
-.fan img{position:absolute;top:48%;width:46%;filter:drop-shadow(0 24px 24px rgba(0,0,0,.6));animation:fan .8s cubic-bezier(.2,1.4,.4,1) both}
-.fan img:nth-child(1){left:4%;--r:-14deg;animation-delay:.1s}
-.fan img:nth-child(2){left:27%;width:50%;top:42%;--r:0deg;z-index:2;animation-delay:.3s}
+.fan img{position:absolute;top:30%;width:46%;filter:drop-shadow(0 24px 24px rgba(0,0,0,.6));animation:fan .8s cubic-bezier(.2,1.4,.4,1) both}
+.fan img:nth-child(1){left:2%;--r:-14deg;animation-delay:.1s}
+.fan img:nth-child(2){left:26%;width:50%;top:26%;--r:0deg;z-index:2;animation-delay:.3s}
 .fan img:nth-child(3){left:52%;--r:14deg;animation-delay:.5s}
-@keyframes fan{from{transform:translateY(80%) rotate(0) scale(.6);opacity:0}to{transform:translateY(-50%) rotate(var(--r))}}
-/* stack scene */
-.stk{position:absolute;inset:24% 10% 22%;display:flex;flex-direction:column-reverse;align-items:center;justify-content:flex-start}
+@keyframes fan{from{transform:translateY(60%) scale(.6);opacity:0}to{transform:rotate(var(--r))}}
+.fan img{transform:rotate(var(--r))}
+.stk{position:absolute;inset:24% 10% 22%;display:flex;flex-direction:column-reverse;align-items:center}
 .stk img{height:34%;width:auto;max-width:60%;object-fit:contain;margin-top:-3%;filter:drop-shadow(0 14px 14px rgba(0,0,0,.5));animation:fall .6s cubic-bezier(.3,1.5,.5,1) both}
 .stk img:nth-child(2){animation-delay:.45s}.stk img:nth-child(3){animation-delay:.9s}
 @keyframes fall{from{transform:translateY(-260%) rotate(18deg);opacity:0}}
-.receipt{position:absolute;inset-inline:16px;bottom:72px;background:#fff;color:#000;border-radius:16px;padding:12px 14px;display:flex;justify-content:space-between;font-weight:800;animation:up .5s 1.3s both}
-/* chat scene */
+.receiptmini{position:absolute;inset-inline:16px;bottom:72px;background:#fff;color:#000;border-radius:16px;padding:12px 14px;display:flex;justify-content:space-between;font-weight:800;animation:up .5s 1.3s both}
 .sc{background:linear-gradient(180deg,#141416,#0b0b0c)}
 .cbox{position:absolute;inset:22% 14px 80px;display:flex;flex-direction:column;gap:10px;justify-content:flex-end}
 .cb{max-width:84%;padding:10px 13px;border-radius:18px;font-size:14.5px;line-height:1.4;animation:pop2 .4s cubic-bezier(.2,1.6,.4,1) both}
@@ -148,18 +149,25 @@ html[lang=ar] .cap{font-family:Alexandria,sans-serif;font-weight:800;font-size:2
 @keyframes blink{50%{opacity:.3}}
 @keyframes pop2{from{transform:scale(.5) translateY(14px);opacity:0}}
 .s5 .cap{top:13%;bottom:auto}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.reel{order:-1;max-height:74vh;max-width:min(100%,400px)}}
-/* goals reel cards */
-.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(240px,1fr);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:28px max(4.5vw,16px) 10px;scrollbar-width:none;max-width:1280px;margin:0 auto}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.reel{order:-1;max-height:72vh;max-height:72svh;max-width:min(100%,400px)}}
+/* highlights */
+.hl{display:flex;gap:16px;overflow-x:auto;scrollbar-width:none;padding:6px max(4.5vw,16px) 18px;max-width:1280px;margin:0 auto;overscroll-behavior-x:contain}
+.hl::-webkit-scrollbar{display:none}
+.hi{flex:none;display:grid;justify-items:center;gap:8px;background:none;border:0;padding:0;font-size:13px;font-weight:600;color:var(--steel);width:76px}
+.hi .ring{width:74px;height:74px;border-radius:50%;padding:3px;background:conic-gradient(from 200deg,var(--red),#ff8a3d,var(--red2),#7c3aed,var(--red))}
+.hi .in{width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 50% 60%,#2a2a30,#0d0d0f);border:3px solid var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hi .in img{width:74%;height:74%;object-fit:contain}
+.hi .in b{font-family:Anton,sans-serif;font-size:22px;font-weight:400;color:#fff}
+/* goal reels */
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(230px,1fr);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:28px max(4.5vw,16px) 10px;scrollbar-width:none;max-width:1280px;margin:0 auto;overscroll-behavior-x:contain}
 .rail::-webkit-scrollbar{display:none}
 .gc{scroll-snap-align:start;position:relative;aspect-ratio:9/14;border-radius:24px;overflow:hidden;border:0;padding:0;text-align:start;background:var(--g);isolation:isolate;transition:transform .3s}
-.gc:hover{transform:translateY(-6px) rotate(-.6deg)}
 .gc::before{content:"";position:absolute;inset:0;background-image:var(--grain);z-index:-1}
-.gc .gw{position:absolute;top:16px;inset-inline:18px;font-family:Anton,sans-serif;font-size:58px;line-height:.9;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.6)}
+.gc .gw{position:absolute;top:16px;inset-inline:18px;font-family:Anton,sans-serif;font-size:56px;line-height:.9;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.6)}
 html[lang=ar] .gc .gw{font-family:Alexandria,sans-serif;font-weight:800;font-size:40px;line-height:1.2}
 .gc .pr{position:absolute;inset:26% 6% 26%}
 .gc .pr img{position:absolute;width:56%;filter:drop-shadow(0 18px 18px rgba(0,0,0,.5));animation:bob2 3.4s ease-in-out infinite}
-.gc .pr img:nth-child(1){left:2%;top:14%;transform:rotate(-10deg)}
+.gc .pr img:nth-child(1){left:2%;top:14%;rotate:-10deg}
 .gc .pr img:nth-child(2){right:0;top:0;width:60%;animation-delay:-1.2s;z-index:2}
 @keyframes bob2{50%{translate:0 -10px}}
 .gc .meta{position:absolute;bottom:18px;inset-inline:18px;display:flex;justify-content:space-between;align-items:end;gap:10px}
@@ -167,6 +175,7 @@ html[lang=ar] .gc .gw{font-family:Alexandria,sans-serif;font-weight:800;font-siz
 .gc .meta small{color:rgba(255,255,255,.8);font-size:13px}
 .gc .go{width:44px;height:44px;flex:none;border-radius:50%;background:#fff;color:#000;display:flex;align-items:center;justify-content:center;font-weight:800}
 html[dir=rtl] .gc .go{transform:scaleX(-1)}
+@media(hover:hover){.gc:hover{transform:translateY(-6px) rotate(-.6deg)}}
 /* panels */
 .duo{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:20px;margin-top:30px}
 @media(max-width:900px){.duo{grid-template-columns:1fr}}
@@ -175,74 +184,75 @@ html[dir=rtl] .gc .go{transform:scaleX(-1)}
 .q{font-weight:800;font-size:22px;margin-bottom:14px;line-height:1.25}
 html[lang=ar] .q{font-family:Alexandria,sans-serif}
 .opts{display:grid;gap:10px}
-.opt{text-align:start;min-height:58px;padding:12px 18px;border-radius:16px;border:1px solid var(--line);background:var(--bg2);display:grid;gap:2px;font-weight:700;transition:border-color .2s,transform .2s}
-.opt:hover{border-color:var(--red);transform:translateX(4px)}html[dir=rtl] .opt:hover{transform:translateX(-4px)}
+.opt{text-align:start;min-height:58px;padding:12px 18px;border-radius:16px;border:1px solid var(--line);background:var(--bg2);display:grid;gap:2px;font-weight:700;transition:border-color .2s}
+.opt:active{border-color:var(--red)}
+@media(hover:hover){.opt:hover{border-color:var(--red)}}
 .opt small{color:var(--mute);font-size:13px;font-weight:500}
-.tower{position:relative;height:260px;display:flex;align-items:flex-end;justify-content:center;gap:0;margin:6px 0 14px;background:radial-gradient(60% 70% at 50% 80%,rgba(227,16,30,.35),transparent 70%)}
-.tower img{width:30%;max-height:220px;object-fit:contain;filter:drop-shadow(0 16px 16px rgba(0,0,0,.55));animation:fall .6s cubic-bezier(.3,1.5,.5,1) both;margin-inline:-3%}
+.tower{position:relative;height:240px;display:flex;align-items:flex-end;justify-content:center;margin:6px 0 14px;background:radial-gradient(60% 70% at 50% 80%,rgba(227,16,30,.35),transparent 70%)}
+.tower img{width:30%;max-height:210px;object-fit:contain;filter:drop-shadow(0 16px 16px rgba(0,0,0,.55));animation:fall .6s cubic-bezier(.3,1.5,.5,1) both;margin-inline:-3%}
 .tower img:nth-child(2){animation-delay:.25s;width:34%;z-index:2}.tower img:nth-child(3){animation-delay:.5s}
 .res{display:grid;gap:8px}
 .pick{display:grid;grid-template-columns:54px 1fr auto;gap:12px;align-items:center;padding:8px 10px;border-radius:16px;background:var(--bg2);border:1px solid var(--line)}
-.pick img{width:54px;height:54px;object-fit:contain}
-.pick img.pl{background:#ececee;border-radius:10px}
+.pick>img{width:54px;height:54px;object-fit:contain}
+.pl{background:#ececee;border-radius:10px}
 .pick .role{color:var(--red2);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.03em}
-.pick .nm{font-weight:700;font-size:14.5px;line-height:1.3;direction:ltr;text-align:start}
-html[dir=rtl] .ltr,html[dir=rtl] .pick .nm{text-align:right}
+.nm{font-weight:700;font-size:14.5px;line-height:1.3;direction:ltr;text-align:start}
+html[dir=rtl] .nm{text-align:right}
 .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
 .back{background:none;border:0;color:var(--mute);min-height:44px;padding:0}
-.add{min-width:44px;min-height:44px;border-radius:999px;border:0;background:var(--red);color:#fff;font-size:22px;line-height:1;transition:transform .2s}
-.add:active{transform:scale(.85)}
-.add.done{background:var(--ink);color:var(--bg);font-size:16px}
 .adv{display:grid;gap:14px;align-content:start}
 .adv ul{margin:0;padding-inline-start:20px;color:var(--mute);display:grid;gap:8px}
+/* add control: fixed footprint so nothing shifts */
+.ctl{width:112px;height:44px;display:flex;justify-content:flex-end;flex:none}
+.add{width:44px;height:44px;border-radius:999px;border:0;background:var(--red);color:#fff;font-size:24px;line-height:1;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.add:active{transform:scale(.85)}
+.add svg{width:20px;height:20px}
+.stp{width:112px;height:44px;border-radius:999px;background:#fff;color:#000;display:grid;grid-template-columns:38px 1fr 38px;align-items:center;animation:grow .28s cubic-bezier(.2,1.5,.4,1)}
+@keyframes grow{from{width:44px;opacity:.6}}
+.stp button{height:44px;border:0;background:none;color:#000;font-size:20px;font-weight:700}
+.stp span{text-align:center;font-weight:800;font-variant-numeric:tabular-nums}
+.ctl.wide{width:100%}.ctl.wide .add{width:100%;font-size:16px;font-weight:800;gap:8px}.ctl.wide .stp{width:100%}
 /* coach */
-.chat{display:flex;flex-direction:column;gap:10px;min-height:300px;max-height:520px;overflow-y:auto;padding:4px 2px 8px}
+.chat{display:flex;flex-direction:column;gap:10px;min-height:300px;max-height:520px;overflow-y:auto;padding:4px 2px 8px;overscroll-behavior:contain}
 .msg{max-width:88%;padding:12px 15px;border-radius:20px;white-space:pre-wrap;font-size:15.5px;animation:pop2 .35s cubic-bezier(.2,1.5,.4,1) both}
 .msg.me{align-self:flex-end;background:var(--red);color:#fff;border-end-end-radius:6px}
 .msg.ai{align-self:flex-start;background:var(--bg2);border:1px solid var(--line);border-end-start-radius:6px}
 .mini{display:grid;gap:8px;margin-top:10px;white-space:normal}
 .sugg{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
-.chip{min-height:42px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);font-size:14px;font-weight:600;transition:background .2s}
-.chip:hover{border-color:#55555d}
+.chip{min-height:42px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);font-size:14px;font-weight:600}
 .chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 form.ask{display:flex;gap:8px;margin-top:8px}
 input{font:inherit;font-size:16px;color:var(--ink);background:var(--bg2);border:1px solid var(--line);border-radius:999px;min-height:50px;padding:0 18px;flex:1;width:100%}
 /* shop */
 .tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:26px 0 18px}
 .tools input{max-width:340px}
-.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}.chips .chip{flex:none}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;overscroll-behavior-x:contain}.chips .chip{flex:none}
 .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 @media(max-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
-.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,border-color .3s}
-.card:hover{transform:translateY(-6px);border-color:#3a3a42}
-.card .ph{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;padding:12%;border:0;width:100%;background:radial-gradient(70% 60% at 50% 60%,var(--c,#3a0c10),transparent 72%),#111113;background-image:radial-gradient(70% 60% at 50% 60%,var(--c,#3a0c10),transparent 72%),var(--grain)}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;contain:layout paint}
+.card .ph{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;padding:12%;border:0;width:100%;background-color:#111113;background-image:radial-gradient(70% 60% at 50% 60%,var(--c,#3a0c10),transparent 72%),var(--grain)}
 .card .ph img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 14px 16px rgba(0,0,0,.55));transition:transform .45s cubic-bezier(.2,1.4,.4,1)}
-.card:hover .ph img{transform:scale(1.08) rotate(-4deg)}
-.card .ph img.pl{background:#ececee;border-radius:14px;padding:6%}
+.card .ph img.pl{padding:6%;border-radius:14px}
+@media(hover:hover){.card .ph:hover img{transform:scale(1.08) rotate(-4deg)}}
 .card .tag{position:absolute;top:10px;inset-inline-start:10px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:4px 9px}
-.card .bd{padding:12px 14px 14px;display:grid;gap:8px;flex:1;align-content:space-between}
-.card .nm{font-weight:700;font-size:14.5px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.7em;direction:ltr;text-align:start}
-html[dir=rtl] .card .nm{text-align:right}
-.card .ft{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.detail{grid-column:1/-1;background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:18px;display:grid;grid-template-columns:220px 1fr;gap:22px;animation:up .35s both}
-.detail img{width:100%;aspect-ratio:1;object-fit:contain;filter:drop-shadow(0 20px 20px rgba(0,0,0,.5))}
-.detail img.pl{background:#ececee;border-radius:14px;padding:8%}
-.detail .ds{color:var(--mute);direction:ltr;text-align:left;font-size:14.5px}
-.badges{display:flex;flex-wrap:wrap;gap:8px}.badge{font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--steel)}
-@media(max-width:640px){.detail{grid-template-columns:1fr}.detail img{max-width:220px}}
+.card .flv{position:absolute;bottom:10px;inset-inline-start:10px;font-size:11px;font-weight:700;background:#fff;color:#000;border-radius:999px;padding:3px 9px}
+.card .bd{padding:12px 12px 12px 14px;display:grid;gap:8px;flex:1;align-content:space-between}
+.card .nm{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.6em}
+.card .ft{display:flex;align-items:center;justify-content:space-between;gap:6px}
+@media(max-width:520px){.card .ft{flex-direction:column;align-items:stretch}.card .ctl{width:100%}.card .ctl .add{width:100%}.card .ctl .stp{width:100%}}
 .empty{grid-column:1/-1;color:var(--mute);padding:30px 0;text-align:center}
 /* promise */
 .pgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:30px}
 @media(max-width:900px){.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:480px){.pgrid{grid-template-columns:1fr}}
-.pc{position:relative;border-radius:22px;padding:22px;background:var(--card);border:1px solid var(--line);display:grid;gap:8px;overflow:hidden}
+.pc{border-radius:22px;padding:22px;background:var(--card);border:1px solid var(--line);display:grid;gap:8px}
 .pc .ic{width:46px;height:46px;border-radius:14px;background:var(--red);display:flex;align-items:center;justify-content:center;font-family:Anton,sans-serif;font-size:22px}
 .pc p{color:var(--mute);font-size:15px}
 /* S3 Black */
 .black{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(24px,4vw,64px);align-items:center}
 @media(max-width:900px){.black{grid-template-columns:1fr}}
 .mwrap{perspective:900px;display:flex;justify-content:center}
-.mcard{position:relative;aspect-ratio:1.586;border-radius:24px;padding:clamp(18px,3vw,28px);display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,#1d1d22 0%,#09090a 45%,#202026 70%,#09090a 100%);border:1px solid #37373e;box-shadow:0 40px 70px -30px #000,inset 0 1px 0 rgba(255,255,255,.08);max-width:480px;width:100%;overflow:hidden;transition:transform .2s;transform-style:preserve-3d}
+.mcard{position:relative;aspect-ratio:1.586;border-radius:24px;padding:clamp(18px,3vw,28px);display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,#1d1d22 0%,#09090a 45%,#202026 70%,#09090a 100%);border:1px solid #37373e;box-shadow:0 40px 70px -30px #000,inset 0 1px 0 rgba(255,255,255,.08);max-width:480px;width:100%;overflow:hidden;transition:transform .2s}
 .mcard::after{content:"";position:absolute;inset:-50%;background:linear-gradient(110deg,transparent 42%,rgba(255,255,255,.16) 50%,transparent 58%);animation:sheen 4.5s ease-in-out infinite}
 @keyframes sheen{0%,40%{transform:translateX(-60%)}80%,100%{transform:translateX(60%)}}
 .mcard .top{display:flex;justify-content:space-between;align-items:center}.mcard img{height:34px;width:auto}
@@ -250,31 +260,103 @@ html[dir=rtl] .card .nm{text-align:right}
 .mcard .nmb{font-family:Anton,sans-serif;font-size:clamp(22px,3vw,30px);letter-spacing:.12em;color:#d9dbe0;direction:ltr;text-align:left}
 .mcard .who{display:flex;justify-content:space-between;color:var(--mute);font-size:13px;direction:ltr}
 .ben{display:grid;gap:12px;margin:20px 0}
-.ben div{display:grid;grid-template-columns:30px 1fr;gap:10px;font-size:16px}
+.ben div{display:grid;grid-template-columns:30px 1fr;gap:10px}
 .ben div::before{content:"";width:24px;height:24px;border-radius:50%;border:1.5px solid var(--red);margin-top:2px;background:radial-gradient(circle,var(--red) 0 4px,transparent 5px)}
 form.wait{display:grid;grid-template-columns:1fr 1fr auto;gap:8px}@media(max-width:600px){form.wait{grid-template-columns:1fr}}
 .ok{color:var(--steel);font-size:14px;margin-top:10px;min-height:1.4em}
 footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;background-image:var(--grain)}
-.fword{overflow:hidden;white-space:nowrap;padding:26px 0 8px}
-.fword .run{display:inline-flex;gap:40px;animation:run 30s linear infinite;font-family:Anton,sans-serif;font-size:clamp(70px,13vw,190px);line-height:.9;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.5px #3a3a40}
+.fword{overflow:hidden;white-space:nowrap;padding:26px 0 8px;contain:paint}
+.fword .run{gap:40px;animation:run 30s linear infinite;font-family:Anton,sans-serif;font-size:clamp(70px,13vw,190px);line-height:.9;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.5px #3a3a40}
 .fword .run span:nth-child(even){color:var(--red);-webkit-text-stroke:0}
-.fbot{padding:18px 0 40px;gap:16px}footer img{height:30px;width:auto}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition:none!important}.tape .run,.brands .run,.fword .run{transform:none}}
+.fbot{padding:18px 0 28px;gap:16px}footer img{height:30px;width:auto}
+/* bag bar: sticky at the end of the page, so it never covers content and never shifts it */
+.bagbar{position:sticky;bottom:0;z-index:4;padding:10px max(4.5vw,12px) calc(10px + var(--sb));background:linear-gradient(transparent,rgba(7,7,8,.92) 30%);display:none}
+.bagbar.show{display:block}
+.bagbar button{width:100%;max-width:560px;margin:0 auto;display:flex;align-items:center;gap:12px;min-height:58px;border-radius:999px;border:0;background:var(--red);color:#fff;padding:0 8px 0 18px;font-weight:800;box-shadow:0 12px 30px -10px rgba(227,16,30,.8)}
+html[dir=rtl] .bagbar button{padding:0 18px 0 8px}
+.bagbar .thumbs{display:flex}
+.bagbar .thumbs img{width:34px;height:34px;object-fit:contain;border-radius:50%;background:#fff;border:2px solid var(--red);margin-inline-start:-10px}
+.bagbar .thumbs img:first-child{margin-inline-start:0}
+.bagbar .t{flex:1;text-align:start}
+.bagbar .go{background:#fff;color:#000;border-radius:999px;padding:10px 16px;font-size:14px}
+/* screens (dialogs): full-screen on phones, side sheet on desktop */
+dialog.scr{border:0;padding:0;margin:0;inset:0;max-width:none;max-height:none;width:100%;height:100%;height:100dvh;background:var(--bg);color:var(--ink);overscroll-behavior:contain}
+dialog.scr[open]{display:flex;flex-direction:column;animation:sheet .32s cubic-bezier(.2,1,.3,1)}
+@keyframes sheet{from{transform:translateY(100%)}}
+dialog.scr::backdrop{background:rgba(0,0,0,.6)}
+@media(min-width:900px){dialog.scr{inset-inline-start:auto;width:480px;border-inline-start:1px solid var(--line)}dialog.scr[open]{animation-name:side}@keyframes side{from{transform:translateX(100%)}}html[dir=rtl] dialog.scr{inset-inline-start:0;inset-inline-end:auto}}
+.sh{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);flex:none;padding-top:calc(10px + env(safe-area-inset-top,0px))}
+.sh h3{flex:1;font-size:18px}
+.x{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:none;font-size:20px}
+.grab{display:block;width:44px;height:5px;border-radius:5px;background:#3a3a42;margin:8px auto 0;flex:none}
+@media(min-width:900px){.grab{display:none}}
+.sb{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:16px 16px 24px}
+.sf{flex:none;border-top:1px solid var(--line);padding:12px 16px calc(12px + var(--sb));background:var(--bg)}
+/* bag lines */
+.line{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.fresh .line{animation:up .25s both}
+.line .im{width:72px;height:72px;border-radius:16px;background:radial-gradient(70% 60% at 50% 60%,var(--c,#3a0c10),#111113 72%);display:flex;align-items:center;justify-content:center;padding:8px}
+.line .im img{width:100%;height:100%;object-fit:contain}
+.line .meta{display:grid;gap:6px}
+.line .top{display:flex;justify-content:space-between;gap:10px;align-items:start}
+.line .v{color:var(--mute);font-size:13px}
+.line .bot{display:flex;justify-content:space-between;align-items:center}
+.line .stp{width:112px;height:40px;background:var(--bg2);color:var(--ink);border:1px solid var(--line);animation:none}
+.line .stp button{height:40px;color:var(--ink)}
+.rm{background:none;border:0;color:var(--mute);font-size:13px;text-decoration:underline;min-height:40px;padding:0 4px}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0 6px}
+.seg button{text-align:start;border:1px solid var(--line);background:var(--bg2);border-radius:16px;padding:10px 12px;min-height:58px;display:grid;gap:2px;font-weight:700;font-size:14px}
+.seg button small{color:var(--mute);font-weight:500;font-size:12.5px}
+.seg button.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.pays{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.pays span{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700;color:var(--steel)}
+/* receipt */
+.rcpt{position:relative;margin:18px 2px 8px;background:#fafafa;color:#111;padding:22px 18px 26px;font-size:14px;filter:drop-shadow(0 18px 30px rgba(0,0,0,.45));
+--z:radial-gradient(circle at 10px 0,transparent 7px,#000 7.5px);-webkit-mask:var(--z) top/20px 51% repeat-x,radial-gradient(circle at 10px 100%,transparent 7px,#000 7.5px) bottom/20px 51% repeat-x;mask:var(--z) top/20px 51% repeat-x,radial-gradient(circle at 10px 100%,transparent 7px,#000 7.5px) bottom/20px 51% repeat-x}
+.fresh .rcpt{animation:print .6s cubic-bezier(.2,1,.3,1) .1s both}
+@keyframes print{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+.rcpt .rh{display:flex;justify-content:space-between;align-items:center;border-bottom:1.5px dashed #bbb;padding-bottom:12px;margin-bottom:10px}
+.rcpt .rh img{height:30px}
+.rcpt .rh b{font-family:Anton,sans-serif;font-weight:400;font-size:20px;letter-spacing:.06em}
+.rcpt .rl{display:flex;gap:8px;align-items:baseline;padding:4px 0;direction:ltr}
+.rcpt .rl .n{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rcpt .rl .dots{flex:0 1 40px;border-bottom:1.5px dotted #aaa;transform:translateY(-4px)}
+.rcpt .sum{border-top:1.5px dashed #bbb;margin-top:10px;padding-top:10px}
+.rcpt .tot{display:flex;justify-content:space-between;align-items:baseline;font-family:Anton,sans-serif;font-size:30px;margin-top:6px;direction:ltr}
+.rcpt .stamp{position:absolute;inset-inline-end:14px;bottom:30px;border:2.5px solid var(--red);color:var(--red);border-radius:10px;padding:4px 10px;font-family:Anton,sans-serif;font-size:18px;letter-spacing:.06em;transform:rotate(-10deg);opacity:.85}
+.rcpt .fine{color:#666;font-size:12px;margin-top:14px;max-width:58%}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.acts .btn{min-height:46px;font-size:14px;padding:0 12px}
+.emptyb{text-align:center;padding:50px 10px;display:grid;gap:14px;justify-items:center;color:var(--mute)}
+.emptyb .big{font-family:Anton,sans-serif;font-size:56px;color:var(--ink);line-height:.9}
+/* product screen */
+.pdph{position:relative;margin:-16px -16px 16px;aspect-ratio:1.15;display:flex;align-items:center;justify-content:center;background-color:#0d0d0f;background-image:radial-gradient(70% 60% at 50% 60%,var(--c,#3a0c10),transparent 72%),var(--grain);overflow:hidden}
+.pdph .gt{position:absolute;inset-inline:0;top:8%;text-align:center;font-family:Anton,sans-serif;font-size:96px;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.18);text-transform:uppercase;white-space:nowrap}
+.pdph img{position:relative;height:78%;width:auto;max-width:78%;object-fit:contain;filter:drop-shadow(0 24px 24px rgba(0,0,0,.6));animation:drop .7s cubic-bezier(.2,1.5,.4,1) both}
+.pdph img.pl{padding:5%;border-radius:18px}
+.flvs{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 2px}
+.flvs button{min-height:42px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);padding:0 14px;font-weight:700;font-size:14px}
+.flvs button.on{background:#fff;color:#000;border-color:#fff}
+.badges{display:flex;flex-wrap:wrap;gap:8px}.badge{font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--steel)}
+.ds{color:var(--mute);direction:ltr;text-align:left;font-size:14.5px}
+/* fly + burst + toast-free feedback */
+.fly{position:fixed;z-index:99;pointer-events:none;object-fit:contain;filter:drop-shadow(0 10px 12px rgba(0,0,0,.5))}
+.burst{position:fixed;z-index:99;pointer-events:none;width:8px;height:8px;border-radius:2px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition:none!important}.run{transform:none!important}}
 </style>
 </head>
 <body>
 <div class="tape" aria-hidden="true"><div class="run" id="tape1"></div></div>
 <header>
   <div class="wrap hd">
-    <a href="#top" aria-label="S3EFFECT"><img class="logo" src="img/logo.png" alt="S3 Sports Supplement Solutions"></a>
+    <a href="#top" aria-label="S3EFFECT"><img class="logo" src="img/logo.png" alt="S3 Sports Supplement Solutions" width="74" height="54"></a>
     <nav class="nav" aria-label="main" id="nav1"></nav>
     <span class="sp"></span>
     <button class="icon" id="lang" aria-label="Switch language"><span class="en">عربي</span><span class="ar">EN</span></button>
-    <button class="icon" id="cartBtn" aria-expanded="false" aria-controls="cart"><span class="en">Cart</span><span class="ar">السلة</span> <span class="count" id="cnt">0</span></button>
+    <button class="icon" id="bagBtn" aria-label="Bag"><svg class="bagic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="count" id="cnt">0</span></button>
   </div>
   <div class="nav2"><div class="wrap"><nav class="nav" aria-label="sections" id="nav2"></nav></div></div>
 </header>
-<section id="cart" aria-label="cart"><div class="wrap cartin" id="cartIn"></div></section>
 
 <main id="top">
 <section class="wrap hero">
@@ -296,6 +378,7 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;backgro
   </div>
 </section>
 
+<div class="hl" id="hl" aria-label="Highlights"></div>
 <div class="brands" aria-hidden="true"><div class="run" id="brands"></div></div>
 
 <section class="band" id="goals" style="padding-bottom:40px">
@@ -306,7 +389,7 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;backgro
 
 <section class="band" id="stack" style="background-color:var(--bg2)"><div class="wrap">
   <h2 class="d"><span class="en">Build your <span class="outline">stack</span></span><span class="ar">ابني الـ<span class="outline">Stack</span> بتاعك</span></h2>
-  <p class="lead"><span class="en">Four taps. Three in-stock products, one price, straight to your cart.</span><span class="ar">4 ضغطات. 3 منتجات متوفرة، سعر واحد، على السلة على طول.</span></p>
+  <p class="lead"><span class="en">Four taps. Three in-stock products, one price, straight to your bag.</span><span class="ar">4 ضغطات. 3 منتجات متوفرة، سعر واحد، على السلة على طول.</span></p>
   <div class="duo">
     <div class="panel" id="quiz" aria-live="polite"></div>
     <div class="panel adv">
@@ -323,12 +406,12 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;backgro
 
 <section class="band" id="coach"><div class="wrap">
   <h2 class="d"><span class="en">S3 Coach. <span class="outline">Ask anything.</span></span><span class="ar">S3 Coach. <span class="outline">اسأل أي حاجة.</span></span></h2>
-  <p class="lead"><span class="en">An AI advisor that knows the S3 catalog and prices, recommends, adds to cart, and hands medical questions to a specialist.</span><span class="ar">مساعد ذكاء اصطناعي بيعرف كتالوج S3 والأسعار، بيرشّح ويضيف للسلة، وبيحوّل أي سؤال طبي لمتخصص.</span></p>
+  <p class="lead"><span class="en">An AI advisor that knows the S3 catalog and prices, recommends, adds to your bag, and hands medical questions to a specialist.</span><span class="ar">مساعد ذكاء اصطناعي بيعرف كتالوج S3 والأسعار، بيرشّح ويضيف للسلة، وبيحوّل أي سؤال طبي لمتخصص.</span></p>
   <div class="duo">
     <div class="panel">
       <div class="chat" id="chat" aria-live="polite"></div>
       <div class="sugg" id="sugg"></div>
-      <form class="ask" id="ask"><input id="askIn" autocomplete="off" aria-label="Your question"><button class="btn r" type="submit"><span class="en">Send</span><span class="ar">إرسال</span></button></form>
+      <form class="ask" id="ask"><input id="askIn" autocomplete="off" enterkeyhint="send" aria-label="Your question"><button class="btn r" type="submit"><span class="en">Send</span><span class="ar">إرسال</span></button></form>
       <p class="note" id="coachNote" style="margin-top:10px"></p>
     </div>
     <div class="panel adv">
@@ -336,7 +419,7 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;backgro
       <ul>
         <li><span class="en">Recommends only in-stock products at current prices.</span><span class="ar">يرشّح من المتوفر بس بأسعاره الحالية.</span></li>
         <li><span class="en">Explains the difference between products in plain words.</span><span class="ar">يشرح الفرق بين المنتجات ببساطة.</span></li>
-        <li><span class="en">Adds to your cart when you ask.</span><span class="ar">يضيف للسلة لما تطلب.</span></li>
+        <li><span class="en">Adds to your bag when you ask.</span><span class="ar">يضيف للسلة لما تطلب.</span></li>
         <li><span class="en">No medical advice: conditions, pregnancy, medication or under-18 go to a specialist.</span><span class="ar">مفيش نصايح طبية: المرض والحمل والأدوية وأقل من 18 بيروحوا لمتخصص.</span></li>
       </ul>
     </div>
@@ -345,9 +428,9 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;backgro
 
 <section class="band" id="shop" style="background-color:var(--bg2)"><div class="wrap">
   <h2 class="d"><span class="en">The <span class="red">drop.</span></span><span class="ar">المتجر</span></h2>
-  <div class="tools"><input id="q" type="search" aria-label="Search"><div class="chips" id="cats"></div></div>
+  <div class="tools"><input id="q" type="search" enterkeyhint="search" aria-label="Search"><div class="chips" id="cats"></div></div>
   <div class="grid" id="grid"></div>
-  <p class="note" style="margin-top:16px"><span class="en">A selection of in-stock products from s3effect.com, prices as listed on 19 Nov 2026.</span><span class="ar">مختارات من المتوفر على s3effect.com، والأسعار زي الموقع يوم 19 نوفمبر 2026.</span></p>
+  <p class="note" style="margin-top:16px" id="asof"></p>
 </div></section>
 
 <section class="band" id="promise"><div class="wrap">
@@ -386,16 +469,23 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;backgro
 <footer>
   <div class="fword" aria-hidden="true"><div class="run"><span>Push.</span><span>Beyond.</span><span>Push.</span><span>Beyond.</span><span>Push.</span><span>Beyond.</span><span>Push.</span><span>Beyond.</span></div></div>
   <div class="wrap row fbot">
-    <img src="img/logo.png" alt="S3">
+    <img src="img/logo.png" alt="S3" width="41" height="30">
     <div class="row" style="gap:18px"><a href="https://s3effect.com">s3effect.com</a><a href="https://www.instagram.com/s3effect/">Instagram @s3effect</a></div>
     <p class="note" style="flex-basis:100%"><span class="en">A proposed-design prototype. Products, prices and photos from s3effect.com; checkout completes on S3’s official store.</span><span class="ar">نسخة تجريبية لتصميم مقترح. المنتجات والأسعار والصور من s3effect.com؛ الدفع بيكمل على متجر S3 الرسمي.</span></p>
   </div>
 </footer>
+<div class="bagbar" id="bagbar"><button id="bagbarBtn"></button></div>
+
+<dialog class="scr" id="bag" aria-labelledby="bagT"><span class="grab" data-grab></span><div class="sh"><h3 id="bagT"></h3><button class="x" data-close aria-label="Close">✕</button></div><div class="sb" id="bagBody"></div><div class="sf" id="bagFoot"></div></dialog>
+<dialog class="scr" id="pdp" aria-labelledby="pdpT"><span class="grab" data-grab></span><div class="sh"><h3 id="pdpT"></h3><button class="x" data-close aria-label="Close">✕</button></div><div class="sb" id="pdpBody"></div><div class="sf" id="pdpFoot"></div></dialog>
 
 <script>
 {
-const D = [{"id":"p0","h":"hydroxycut-hardcore-muscletech-60-capsules","t":"Hydroxycut Hardcore Muscletech 60 capsules","c":"burn","s":1,"v":48905696673949,"p":1750,"d":"Hydroxycut Hardcore is for the everyday warriors who need energy, focus, and weight loss power to tackle life’s toughest demands.","img":"cut/p0.webp","cut":true},{"id":"p1","h":"c4-whey-protein","t":"C4 Whey Protein","c":"protein","s":0,"v":48972010946717,"p":3250,"d":"Make hitting your daily protein goal a treat — not a chore. Each scoop packs 25g of protein to support muscle growth and recovery, all while being macro-friendly with zero added sugar.","img":"cut/p1.webp","cut":true},{"id":"p2","h":"animal-whey-iso-whey-protein-blend","t":"Animal Whey - Iso Whey Protein Blend","c":"protein","s":0,"v":48905649455261,"p":3950,"d":"Premium quality, isolate-loaded, and highly digestible whey protein powder, Animal Whey repairs muscle tissue and reduces post-workout soreness fast.","img":"cut/p2.webp","cut":true},{"id":"p3","h":"iso-gro-usn","t":"Iso Gro USN","c":"protein","s":0,"v":48905378660509,"p":4500,"d":"ISO-GRO WHEY is a technically advanced protein, leaping forward to set a completely new benchmark.","img":"cut/p3.webp","cut":true},{"id":"p4","h":"animal-clear-whey-isolate","t":"Animal Clear whey isolate","c":"protein","s":0,"v":48972011176093,"p":3850,"d":"Introducing Animal Clear Whey Protein Isolate – a game-changing addition to your arsenal for achieving peak performance and sculpting your physique to perfection.","img":"cut/p4.webp","cut":true},{"id":"p5","h":"nutrend-isowhey-prozero","t":"Nutrend IsoWhey ProZero · 2.25 kg","c":"protein","s":0,"v":47160067096733,"p":5400,"d":"100% premium isolate Whey isolate reperesents one of the best sources of protein and naturally occurring BCAAs.","img":"cut/p5.webp","cut":true},{"id":"p6","h":"celltech-muscletech","t":"CellTech Creactor Muscletech","c":"creatine","s":0,"v":48905689137309,"p":2550,"d":"CELLTECH Creatine HCI+ Ultimate Creatine HCI+ Formula Cell-Tech ® Creatine HCI delivers a dual-source creatine system — powered by CON-CRĒT ® Creatine Hydrochloride and Creatine Monohydrate — designed","img":"cut/p6.webp","cut":true},{"id":"p7","h":"creatine-monohydrate-gorilla","t":"Creatine Monohydrate Gorilla","c":"creatine","s":0,"v":48905675997341,"p":2850,"d":"Creatine is a fantastic ingredient in both a pre-workout and post-workout context for improving strength, power output, muscle size and may even support cognitive performance [R, R, R, R, R].","img":"cut/p7.webp","cut":true},{"id":"p8","h":"creatine-ultra-caps-usn","t":"Creatine Ultra Caps USN","c":"creatine","s":0,"v":48905355886749,"p":1850,"d":"100% micronised creatine 3300 mg creatine per serving Increased performance and stamina 40 servings Food supplement with creatine.","img":"cut/p8.webp","cut":true},{"id":"p9","h":"creatine-monohydrate-biotech","t":"Creatine Monohydrate Biotech 500g","c":"creatine","s":0,"v":48905308897437,"p":2350,"d":"Creatine Monohydrate Biotech One of the most extensively researched active ingredients in sports nutrition, its effectiveness and safety are guaranteed.","img":"cut/p9.webp","cut":true},{"id":"p10","h":"creatine-zero-effervescent-tablets-biotech-18-tabs","t":"Creatine Zero Effervescent Tablets Biotech 18 Tabs","c":"creatine","s":0,"v":48905292710045,"p":950,"d":"Why do we recommend Creatine Zero effervescent tablets? One tablet contains 2500 mg creatine monohydrate Sugar-free Lactose-free Gluten-free WHAT IS CREATINE? Creatine is one of the favorite supplemen","img":"cut/p10.webp","cut":true},{"id":"p11","h":"creatine-hydration-usn-servings-30-servings","t":"Creatine + Hydration USN · 30 servings","c":"creatine","s":0,"v":47580011397277,"p":1900,"d":"Zero Sugar Creatine Hydrator, a premium blend designed to fuel your workouts and optimise recovery.","img":"cut/p11.webp","cut":true},{"id":"p12","h":"creatine-hydration-applied-nutrition-strength-endurance-recovery","t":"Creatine + Hydration Applied Nutrition","c":"creatine","s":0,"v":47577477906589,"p":2500,"d":"Creatine + Hydration STRENGTH | ENDURANCE | RECOVERY 330g/360g | 30 Servings Unlock peak daily performance with Creatine + Hydration, a premium formula from Applied Nutrition combining the proven bene","img":"cut/p12.webp","cut":true},{"id":"p13","h":"allmax-acuts-amino-charged-energy-drink","t":"Allmax ACuts Amino Energy","c":"amino","s":1,"v":48905640411293,"p":1950,"d":"Why Choose Allmax ACuts Amino Energy Drink? Allmax ACuts is a zero-sugar, dye-free Amino-Charged Energy Drink delivering 4.2 g of amino acid energy, 127 mg of natural-source caffeine, 2,000 mg of taur","img":"cut/p13.webp","cut":true},{"id":"p14","h":"l-carnitine-ultra-usn","t":"L-Carnitine Ultra USN","c":"burn","s":0,"v":48905377579165,"p":1950,"d":"L-Carnitine L-Tartrate 1000 mg of carnitine per serving Supports active lifestyle and exercise goals Convenient capsule form Food supplement with amino acid.","img":"cut/p14.webp","cut":true},{"id":"p15","h":"black-burn-biotech-30-servings","t":"Black Burn Biotech 30 servings","c":"burn","s":1,"v":48905306275997,"p":2500,"d":"Dietary supplement drink formula with plant extracts, L-carnitine, choline, inositol, CLA, HCA, amino acids, vitamins and minerals, plus with 200 mg caffeine per serving.","img":"cut/p15.webp","cut":true},{"id":"p16","h":"l-carnitine-chrome-biotech-60-caps","t":"L-Carnitine + Chrome Biotech 60 caps","c":"burn","s":0,"v":48905302540445,"p":1550,"d":"Why do we recommend the L-Carnitine+Chrome capsule? It contains 1,000 mg L-carnitine per serving It contains chromium which contributes to the maintenance of normal blood glucose levels* The product a","img":"cut/p16.webp","cut":true},{"id":"p17","h":"berberine-1000mg-applied-nutrition-servings-60-capsules","t":"Berberine 1000mg Applied Nutrition · 60 capsules","c":"burn","s":0,"v":48635885944989,"p":2100,"d":"Berberine 1000mg Applied Nutrition servings : 60 capsules Applied Nutrition Berberine is a versatile supplement with a range of potential health benefits, particularly for managing blood sugar levels, cholesterol, and weight loss.","img":"img/p17.jpg","cut":false},{"id":"p18","h":"lipo-6-nighttime-restful-sleep-and-weight-loss","t":"Lipo-6 Nighttime Restful Sleep and Weight Loss","c":"burn","s":null,"v":47269591777437,"p":1750,"d":"Supports Fat Loss While You Sleep Improves Sleep Quality for Better Recovery Helps Control Cravings and Appetite Non-Groggy Formula for Restful Nights LIPO-6 NIGHTTIME is the only ultra-concentrated weight loss sleep aid of its kind.","img":"cut/p18.webp","cut":true},{"id":"p19","h":"lipo-6-black-uc-the-ultimate-thermogenic-fat-burner","t":"Lipo-6 Black UC The Ultimate Thermogenic Fat Burner","c":"burn","s":1,"v":47269605965981,"p":1300,"d":"If you’re ready to take your weight loss to the next level - then LIPO-6 BLACK UC has you","img":"cut/p19.webp","cut":true},{"id":"p20","h":"allmax-citrulline-malate-2-1","t":"Allmax Citrulline Malate 2:1","c":"pre","s":0,"v":48905636053149,"p":2350,"d":"ALLMAX Citrulline Malate 2:1: Nitric Oxide, Endurance & Recovery Support ALLMAX Citrulline Malate 2:1 delivers 2 g of pharmaceutical-grade, 2:1-bonded Citrulline Malate per serving, a pure, stimulant-","img":"cut/p20.webp","cut":true},{"id":"p21","h":"l-arginine-ultra-usn","t":"L-Arginine Ultra USN","c":"pre","s":0,"v":48905378332829,"p":1950,"d":"L-arginine in capsules 4920 mg L-arginine per serving Simple use and dosing 30 servings INGREDIENTS : L-Arginine hydrochloride, Gelatin capsule (Bovine), Anti-caking agent (Magnesium salts of fatty acids).","img":"cut/p21.webp","cut":true},{"id":"p22","h":"mr-hyde-nightmare-pro-supps","t":"Mr. Hyde Nightmare Pro Supps","c":"pre","s":1,"v":48480871612573,"p":3650,"d":"Suggested Use: Mix 1 serving (2 scoops) of Mr. HYDE® Nightmare with 6-8 oz of cold water.","img":"cut/p22.webp","cut":true},{"id":"p23","h":"jekyll-hyde-nightmare-pro-supps","t":"Jekyll & Hyde Nightmare Pro Supps","c":"pre","s":1,"v":48480869908637,"p":3650,"d":"Who is Jekyll & Hyde® Nightmare Dual Tub for? Athletes and fitness enthusiasts who demand flexibility, precision, and intensity from their pre-workout.","img":"cut/p23.webp","cut":true},{"id":"p24","h":"bodyfuel™-pre-workout-powder","t":"BodyFuel™ Pre-Workout Powder","c":"pre","s":null,"v":47577431408797,"p":2150,"d":"BodyFuel™ Pre-Workout Powder BodyFuel™ Ultimate Pre-Workout has been formulated to help you get the best out of each workout.","img":"cut/p24.webp","cut":true},{"id":"p25","h":"laperva-triple-power-pre-workout","t":"Laperva Triple Power Pre-Workout","c":"pre","s":null,"v":47415082647709,"p":1650,"d":"The Laperva Triple Power Pre-workout Formula Includes the Best Ingredients That Increase the Activity and Vitality of the Body.","img":"cut/p25.webp","cut":true},{"id":"p26","h":"c4-original-pre-workout-powder-30-servings","t":"C4 Original Pre Workout Powder 50 servings Cellucor","c":"pre","s":1,"v":47415059349661,"p":2650,"d":"This powerhouse pre-workout blend, packed with 200mg of caffeine and 2g of CarnoSyn® Beta-Alanine*, guarantees sustained energy and endurance to help you power through even the toughest set","img":"cut/p26.webp","cut":true},{"id":"p27","h":"omega-3-ultra-sport-usn","t":"Omega 3 Ultra Sport USN","c":"health","s":0,"v":48905372991645,"p":1950,"d":"Omega-3 Ultra Sport “soft gels” contain 2000 mg of fish oil rich in the omega-3 fatty acids EPA and DHA.","img":"cut/p27.webp","cut":true},{"id":"p28","h":"multivitamin-for-men-biotech-60-tabs","t":"Multivitamin For Men Biotech 60 Tabs","c":"health","s":0,"v":48905301786781,"p":1500,"d":"Food supplement tablets containing vitamins, minerals, plant extracts and amino acids developed for men.","img":"img/p28.jpg","cut":false},{"id":"p29","h":"multivitamin-for-women-biotech","t":"Multivitamin For women Biotech","c":"health","s":0,"v":48905301164189,"p":1450,"d":"Why do we recommend Multivitamin For Women tablets? With 12 kinds of vitamins With 11 kinds of minerals With 7 kinds of antioxidants With 7 kinds of plant extracts and spirulina powder Lactose-free CO","img":"img/p29.jpg","cut":false},{"id":"p30","h":"ashwagandha-biotech-60-pills","t":"Ashwagandha Biotech 60 pills","c":"health","s":0,"v":48905294676125,"p":1450,"d":"Ashwagandha , also known as Indian ginseng or winter cherry, is an adaptogenic herb known for millennia.","img":"img/p30.jpg","cut":false},{"id":"p31","h":"ashwa-biotech-30-caps","t":"Ashwa+ Biotech 30 caps","c":"health","s":0,"v":48905293856925,"p":1250,"d":"Why do we recommend the Ashwa+ capsule? 500 mg Ashwagandha extract 125 mg Panax ginseng extract 75 mg green tea extract With a complex of 5 active ingredients derived from plant extracts A blister pac","img":"img/p31.jpg","cut":false},{"id":"p32","h":"cream-of-rice-complex-applied-nutrition","t":"Cream of Rice complex Applied Nutrition","c":"carb","s":0,"v":47577553174685,"p":1850,"d":"Cream of Rice Complex Carbohydrates Easy Digesting | Great Tasting | Source of Energy Applied Nutrition’s Cream of Rice is a great source of carbohydrates which is easy on the stomach and tasty too.","img":"cut/p32.webp","cut":true},{"id":"p33","h":"marine-collagen-powder-applied-nutrition","t":"Marine Collagen Powder Applied Nutrition","c":"health","s":0,"v":47577510576285,"p":2500,"d":"Marine Collagen Powder From Wild Caught Fish - YOUTHFUL APPEARANCE HAIR | SKIN | NAILS | JOINTS - As used by Coleen Rooney 0g Sugar | 0g Carbs | 0g Fat | 11g Protein | 12g Collagen 300g | 25 Servings ","img":"cut/p33.webp","cut":true},{"id":"p34","h":"eaa-zero-biotech","t":"EAA Zero Biotech","c":"amino","s":0,"v":48905310732445,"p":2300,"d":"They also choose EAA Zero: It’s not just us who believe that essential amino acid support is indispensable – but also those who strive for the maximum every day.","img":"cut/p34.webp","cut":true},{"id":"p35","h":"amino-energy-zero-with-electrolytes-biotech","t":"Amino Energy zero with Electrolytes Biotech","c":"amino","s":1,"v":48905309880477,"p":2150,"d":"Dietary supplement drink powder with caffeine, essential and conditionally essential amino acids, electrolytes, vitamin B6 and sweetener.","img":"cut/p35.webp","cut":true},{"id":"p36","h":"l-glutamine-biotech-100-servings","t":"L Glutamine Biotech 100 servings","c":"amino","s":0,"v":48905307521181,"p":2400,"d":"Why do we recommend 100% L-Glutamine? 5,000 mg L-glutamine in one serving 100% purity product Lactose, gluten, and sugar-free Unflavoured *The statement only applies to products dissolved in water and ready to consume.","img":"cut/p36.webp","cut":true},{"id":"p38","h":"glutamine-muscletech","t":"PLATINUM 100% GLUTAMINE Muscletech","c":"amino","s":0,"v":48901981962397,"p":1750,"d":"PLATINUM 100%GLUTAMINE HPLC-Tested & Ultra Pure Platinum 100% Glutamine delivers pure, HPLC-tested L-glutamine to help replenish what’s lost during intense training — supporting muscle recovery and immune health.","img":"cut/p38.webp","cut":true},{"id":"p39","h":"all-9-amino-acids-usn","t":"All 9 Amino Acids USN","c":"amino","s":0,"v":47580010348701,"p":2000,"d":"ALL9™ Amino contains the nine essential amino acids that your body needs but cannot produce naturally.","img":"img/p39.jpg","cut":false},{"id":"p40","h":"bodyfuel™-ultimate-aminos","t":"BodyFuel™ Ultimate Aminos","c":"amino","s":0,"v":47577442287773,"p":2150,"d":"BodyFuel™ Ultimate Aminos BodyFuel™ Ultimate Amino’s has been carefully formulated to deliver intra-workout support for anyone who takes part in exercise.","img":"cut/p40.webp","cut":true}];
+'use strict';
+const D = [{"id":"p0","h":"hydroxycut-hardcore-muscletech-60-capsules","t":"Hydroxycut Hardcore Muscletech 60 capsules","c":"burn","s":1,"v":48905696673949,"p":1750,"d":"Hydroxycut Hardcore is for the everyday warriors who need energy, focus, and weight loss power to tackle life’s toughest demands.","img":"cut/p0.webp","cut":true,"vs":[{"id":48905696673949,"t":"Default Title","p":1750}]},{"id":"p1","h":"c4-whey-protein","t":"C4 Whey Protein","c":"protein","s":0,"v":48972010946717,"p":3250,"d":"Make hitting your daily protein goal a treat — not a chore. Each scoop packs 25g of protein to support muscle growth and recovery, all while being macro-friendly with zero added sugar.","img":"cut/p1.webp","cut":true,"vs":[{"id":48972010946717,"t":"Chocolate","p":3250},{"id":48972010979485,"t":"Vanilla","p":3250},{"id":48972011012253,"t":"Choco peanut butter","p":3250},{"id":48972011045021,"t":"Slush puppies","p":3250}]},{"id":"p2","h":"animal-whey-iso-whey-protein-blend","t":"Animal Whey - Iso Whey Protein Blend","c":"protein","s":0,"v":48905649455261,"p":3950,"d":"Premium quality, isolate-loaded, and highly digestible whey protein powder, Animal Whey repairs muscle tissue and reduces post-workout soreness fast.","img":"cut/p2.webp","cut":true,"vs":[{"id":48905649455261,"t":"Vanilla","p":3950}]},{"id":"p3","h":"iso-gro-usn","t":"Iso Gro USN","c":"protein","s":0,"v":48905378660509,"p":4500,"d":"ISO-GRO WHEY is a technically advanced protein, leaping forward to set a completely new benchmark.","img":"cut/p3.webp","cut":true,"vs":[{"id":48905378660509,"t":"Default Title","p":4500}]},{"id":"p4","h":"animal-clear-whey-isolate","t":"Animal Clear whey isolate","c":"protein","s":0,"v":48972011176093,"p":3850,"d":"Introducing Animal Clear Whey Protein Isolate – a game-changing addition to your arsenal for achieving peak performance and sculpting your physique to perfection.","img":"cut/p4.webp","cut":true,"vs":[{"id":48972011176093,"t":"Pineapple orange","p":3850},{"id":48972011208861,"t":"Açai berry","p":3850},{"id":48972011241629,"t":"Watermelon lemonade","p":3850}]},{"id":"p5","h":"nutrend-isowhey-prozero","t":"Nutrend IsoWhey ProZero · 2.25 kg","c":"protein","s":0,"v":47160067096733,"p":5400,"d":"100% premium isolate Whey isolate reperesents one of the best sources of protein and naturally occurring BCAAs.","img":"cut/p5.webp","cut":true,"vs":[{"id":47160067096733,"t":"Vanilla Pudding","p":5400}]},{"id":"p6","h":"celltech-muscletech","t":"CellTech Creactor Muscletech","c":"creatine","s":0,"v":48905689137309,"p":2550,"d":"CELLTECH Creatine HCI+ Ultimate Creatine HCI+ Formula Cell-Tech ® Creatine HCI delivers a dual-source creatine system — powered by CON-CRĒT ® Creatine Hydrochloride and Creatine Monohydrate — designed","img":"cut/p6.webp","cut":true,"vs":[{"id":48905689137309,"t":"Default Title","p":2550}]},{"id":"p7","h":"creatine-monohydrate-gorilla","t":"Creatine Monohydrate Gorilla","c":"creatine","s":0,"v":48905675997341,"p":2850,"d":"Creatine is a fantastic ingredient in both a pre-workout and post-workout context for improving strength, power output, muscle size and may even support cognitive performance [R, R, R, R, R].","img":"cut/p7.webp","cut":true,"vs":[{"id":48905675997341,"t":"Default Title","p":2850}]},{"id":"p8","h":"creatine-ultra-caps-usn","t":"Creatine Ultra Caps USN","c":"creatine","s":0,"v":48905355886749,"p":1850,"d":"100% micronised creatine 3300 mg creatine per serving Increased performance and stamina 40 servings Food supplement with creatine.","img":"cut/p8.webp","cut":true,"vs":[{"id":48905355886749,"t":"Default Title","p":1850}]},{"id":"p9","h":"creatine-monohydrate-biotech","t":"Creatine Monohydrate Biotech 500g","c":"creatine","s":0,"v":48905308897437,"p":2350,"d":"Creatine Monohydrate Biotech One of the most extensively researched active ingredients in sports nutrition, its effectiveness and safety are guaranteed.","img":"cut/p9.webp","cut":true,"vs":[{"id":48905308897437,"t":"Default Title","p":2350}]},{"id":"p10","h":"creatine-zero-effervescent-tablets-biotech-18-tabs","t":"Creatine Zero Effervescent Tablets Biotech 18 Tabs","c":"creatine","s":0,"v":48905292710045,"p":950,"d":"Why do we recommend Creatine Zero effervescent tablets? One tablet contains 2500 mg creatine monohydrate Sugar-free Lactose-free Gluten-free WHAT IS CREATINE? Creatine is one of the favorite supplemen","img":"cut/p10.webp","cut":true,"vs":[{"id":48905292710045,"t":"Default Title","p":950}]},{"id":"p11","h":"creatine-hydration-usn-servings-30-servings","t":"Creatine + Hydration USN · 30 servings","c":"creatine","s":0,"v":47580011397277,"p":1900,"d":"Zero Sugar Creatine Hydrator, a premium blend designed to fuel your workouts and optimise recovery.","img":"cut/p11.webp","cut":true,"vs":[{"id":47580011397277,"t":"Pineapple orange","p":1900}]},{"id":"p12","h":"creatine-hydration-applied-nutrition-strength-endurance-recovery","t":"Creatine + Hydration Applied Nutrition","c":"creatine","s":0,"v":47577477906589,"p":2500,"d":"Creatine + Hydration STRENGTH | ENDURANCE | RECOVERY 330g/360g | 30 Servings Unlock peak daily performance with Creatine + Hydration, a premium formula from Applied Nutrition combining the proven bene","img":"cut/p12.webp","cut":true,"vs":[{"id":47577477906589,"t":"Lime","p":2500}]},{"id":"p13","h":"allmax-acuts-amino-charged-energy-drink","t":"Allmax ACuts Amino Energy","c":"amino","s":1,"v":48905640411293,"p":1950,"d":"Why Choose Allmax ACuts Amino Energy Drink? Allmax ACuts is a zero-sugar, dye-free Amino-Charged Energy Drink delivering 4.2 g of amino acid energy, 127 mg of natural-source caffeine, 2,000 mg of taur","img":"cut/p13.webp","cut":true,"vs":[{"id":48905640411293,"t":"Default Title","p":1950}]},{"id":"p14","h":"l-carnitine-ultra-usn","t":"L-Carnitine Ultra USN","c":"burn","s":0,"v":48905377579165,"p":1950,"d":"L-Carnitine L-Tartrate 1000 mg of carnitine per serving Supports active lifestyle and exercise goals Convenient capsule form Food supplement with amino acid.","img":"cut/p14.webp","cut":true,"vs":[{"id":48905377579165,"t":"Default Title","p":1950}]},{"id":"p15","h":"black-burn-biotech-30-servings","t":"Black Burn Biotech 30 servings","c":"burn","s":1,"v":48905306275997,"p":2500,"d":"Dietary supplement drink formula with plant extracts, L-carnitine, choline, inositol, CLA, HCA, amino acids, vitamins and minerals, plus with 200 mg caffeine per serving.","img":"cut/p15.webp","cut":true,"vs":[{"id":48905306275997,"t":"Default Title","p":2500}]},{"id":"p16","h":"l-carnitine-chrome-biotech-60-caps","t":"L-Carnitine + Chrome Biotech 60 caps","c":"burn","s":0,"v":48905302540445,"p":1550,"d":"Why do we recommend the L-Carnitine+Chrome capsule? It contains 1,000 mg L-carnitine per serving It contains chromium which contributes to the maintenance of normal blood glucose levels* The product a","img":"cut/p16.webp","cut":true,"vs":[{"id":48905302540445,"t":"Default Title","p":1550}]},{"id":"p17","h":"berberine-1000mg-applied-nutrition-servings-60-capsules","t":"Berberine 1000mg Applied Nutrition · 60 capsules","c":"burn","s":0,"v":48635885944989,"p":2100,"d":"Berberine 1000mg Applied Nutrition servings : 60 capsules Applied Nutrition Berberine is a versatile supplement with a range of potential health benefits, particularly for managing blood sugar levels, cholesterol, and weight loss.","img":"img/p17.jpg","cut":false,"vs":[{"id":48635885944989,"t":"Default Title","p":2100}]},{"id":"p18","h":"lipo-6-nighttime-restful-sleep-and-weight-loss","t":"Lipo-6 Nighttime Restful Sleep and Weight Loss","c":"burn","s":null,"v":47269591777437,"p":1750,"d":"Supports Fat Loss While You Sleep Improves Sleep Quality for Better Recovery Helps Control Cravings and Appetite Non-Groggy Formula for Restful Nights LIPO-6 NIGHTTIME is the only ultra-concentrated weight loss sleep aid of its kind.","img":"cut/p18.webp","cut":true,"vs":[{"id":47269591777437,"t":"Default Title","p":1750}]},{"id":"p19","h":"lipo-6-black-uc-the-ultimate-thermogenic-fat-burner","t":"Lipo-6 Black UC The Ultimate Thermogenic Fat Burner","c":"burn","s":1,"v":47269605965981,"p":1300,"d":"If you’re ready to take your weight loss to the next level - then LIPO-6 BLACK UC has you","img":"cut/p19.webp","cut":true,"vs":[{"id":47269605965981,"t":"Default Title","p":1300}]},{"id":"p20","h":"allmax-citrulline-malate-2-1","t":"Allmax Citrulline Malate 2:1","c":"pre","s":0,"v":48905636053149,"p":2350,"d":"ALLMAX Citrulline Malate 2:1: Nitric Oxide, Endurance & Recovery Support ALLMAX Citrulline Malate 2:1 delivers 2 g of pharmaceutical-grade, 2:1-bonded Citrulline Malate per serving, a pure, stimulant-","img":"cut/p20.webp","cut":true,"vs":[{"id":48905636053149,"t":"Default Title","p":2350}]},{"id":"p21","h":"l-arginine-ultra-usn","t":"L-Arginine Ultra USN","c":"pre","s":0,"v":48905378332829,"p":1950,"d":"L-arginine in capsules 4920 mg L-arginine per serving Simple use and dosing 30 servings INGREDIENTS : L-Arginine hydrochloride, Gelatin capsule (Bovine), Anti-caking agent (Magnesium salts of fatty acids).","img":"cut/p21.webp","cut":true,"vs":[{"id":48905378332829,"t":"Default Title","p":1950}]},{"id":"p22","h":"mr-hyde-nightmare-pro-supps","t":"Mr. Hyde Nightmare Pro Supps","c":"pre","s":1,"v":48480871612573,"p":3650,"d":"Suggested Use: Mix 1 serving (2 scoops) of Mr. HYDE® Nightmare with 6-8 oz of cold water.","img":"cut/p22.webp","cut":true,"vs":[{"id":48480871612573,"t":"Default Title","p":3650}]},{"id":"p23","h":"jekyll-hyde-nightmare-pro-supps","t":"Jekyll & Hyde Nightmare Pro Supps","c":"pre","s":1,"v":48480869908637,"p":3650,"d":"Who is Jekyll & Hyde® Nightmare Dual Tub for? Athletes and fitness enthusiasts who demand flexibility, precision, and intensity from their pre-workout.","img":"cut/p23.webp","cut":true,"vs":[{"id":48480869908637,"t":"Default Title","p":3650}]},{"id":"p24","h":"bodyfuel™-pre-workout-powder","t":"BodyFuel™ Pre-Workout Powder","c":"pre","s":null,"v":47577431408797,"p":2150,"d":"BodyFuel™ Pre-Workout Powder BodyFuel™ Ultimate Pre-Workout has been formulated to help you get the best out of each workout.","img":"cut/p24.webp","cut":true,"vs":[{"id":47577431408797,"t":"Lemon","p":2150}]},{"id":"p25","h":"laperva-triple-power-pre-workout","t":"Laperva Triple Power Pre-Workout","c":"pre","s":null,"v":47415082647709,"p":1650,"d":"The Laperva Triple Power Pre-workout Formula Includes the Best Ingredients That Increase the Activity and Vitality of the Body.","img":"cut/p25.webp","cut":true,"vs":[{"id":47415082647709,"t":"Cola","p":1650}]},{"id":"p26","h":"c4-original-pre-workout-powder-30-servings","t":"C4 Original Pre Workout Powder 50 servings Cellucor","c":"pre","s":1,"v":47415059349661,"p":2650,"d":"This powerhouse pre-workout blend, packed with 200mg of caffeine and 2g of CarnoSyn® Beta-Alanine*, guarantees sustained energy and endurance to help you power through even the toughest set","img":"cut/p26.webp","cut":true,"vs":[{"id":47415059349661,"t":"Watermelon","p":2650}]},{"id":"p27","h":"omega-3-ultra-sport-usn","t":"Omega 3 Ultra Sport USN","c":"health","s":0,"v":48905372991645,"p":1950,"d":"Omega-3 Ultra Sport “soft gels” contain 2000 mg of fish oil rich in the omega-3 fatty acids EPA and DHA.","img":"cut/p27.webp","cut":true,"vs":[{"id":48905372991645,"t":"Default Title","p":1950}]},{"id":"p28","h":"multivitamin-for-men-biotech-60-tabs","t":"Multivitamin For Men Biotech 60 Tabs","c":"health","s":0,"v":48905301786781,"p":1500,"d":"Food supplement tablets containing vitamins, minerals, plant extracts and amino acids developed for men.","img":"img/p28.jpg","cut":false,"vs":[{"id":48905301786781,"t":"Default Title","p":1500}]},{"id":"p29","h":"multivitamin-for-women-biotech","t":"Multivitamin For women Biotech","c":"health","s":0,"v":48905301164189,"p":1450,"d":"Why do we recommend Multivitamin For Women tablets? With 12 kinds of vitamins With 11 kinds of minerals With 7 kinds of antioxidants With 7 kinds of plant extracts and spirulina powder Lactose-free CO","img":"img/p29.jpg","cut":false,"vs":[{"id":48905301164189,"t":"Default Title","p":1450}]},{"id":"p30","h":"ashwagandha-biotech-60-pills","t":"Ashwagandha Biotech 60 pills","c":"health","s":0,"v":48905294676125,"p":1450,"d":"Ashwagandha , also known as Indian ginseng or winter cherry, is an adaptogenic herb known for millennia.","img":"img/p30.jpg","cut":false,"vs":[{"id":48905294676125,"t":"Default Title","p":1450}]},{"id":"p31","h":"ashwa-biotech-30-caps","t":"Ashwa+ Biotech 30 caps","c":"health","s":0,"v":48905293856925,"p":1250,"d":"Why do we recommend the Ashwa+ capsule? 500 mg Ashwagandha extract 125 mg Panax ginseng extract 75 mg green tea extract With a complex of 5 active ingredients derived from plant extracts A blister pac","img":"img/p31.jpg","cut":false,"vs":[{"id":48905293856925,"t":"Default Title","p":1250}]},{"id":"p32","h":"cream-of-rice-complex-applied-nutrition","t":"Cream of Rice complex Applied Nutrition","c":"carb","s":0,"v":47577553174685,"p":1850,"d":"Cream of Rice Complex Carbohydrates Easy Digesting | Great Tasting | Source of Energy Applied Nutrition’s Cream of Rice is a great source of carbohydrates which is easy on the stomach and tasty too.","img":"cut/p32.webp","cut":true,"vs":[{"id":47577553174685,"t":"Golden syrup","p":1850},{"id":47577553207453,"t":"Toffee biscuits","p":1850},{"id":48905654010013,"t":"Unflavored","p":1850}]},{"id":"p33","h":"marine-collagen-powder-applied-nutrition","t":"Marine Collagen Powder Applied Nutrition","c":"health","s":0,"v":47577510576285,"p":2500,"d":"Marine Collagen Powder From Wild Caught Fish - YOUTHFUL APPEARANCE HAIR | SKIN | NAILS | JOINTS - As used by Coleen Rooney 0g Sugar | 0g Carbs | 0g Fat | 11g Protein | 12g Collagen 300g | 25 Servings ","img":"cut/p33.webp","cut":true,"vs":[{"id":47577510576285,"t":"Strawberry Raspberry","p":2500}]},{"id":"p34","h":"eaa-zero-biotech","t":"EAA Zero Biotech","c":"amino","s":0,"v":48905310732445,"p":2300,"d":"They also choose EAA Zero: It’s not just us who believe that essential amino acid support is indispensable – but also those who strive for the maximum every day.","img":"cut/p34.webp","cut":true,"vs":[{"id":48905310732445,"t":"Default Title","p":2300}]},{"id":"p35","h":"amino-energy-zero-with-electrolytes-biotech","t":"Amino Energy zero with Electrolytes Biotech","c":"amino","s":1,"v":48905309880477,"p":2150,"d":"Dietary supplement drink powder with caffeine, essential and conditionally essential amino acids, electrolytes, vitamin B6 and sweetener.","img":"cut/p35.webp","cut":true,"vs":[{"id":48905309880477,"t":"Default Title","p":2150}]},{"id":"p36","h":"l-glutamine-biotech-100-servings","t":"L Glutamine Biotech 100 servings","c":"amino","s":0,"v":48905307521181,"p":2400,"d":"Why do we recommend 100% L-Glutamine? 5,000 mg L-glutamine in one serving 100% purity product Lactose, gluten, and sugar-free Unflavoured *The statement only applies to products dissolved in water and ready to consume.","img":"cut/p36.webp","cut":true,"vs":[{"id":48905307521181,"t":"Default Title","p":2400}]},{"id":"p38","h":"glutamine-muscletech","t":"PLATINUM 100% GLUTAMINE Muscletech","c":"amino","s":0,"v":48901981962397,"p":1750,"d":"PLATINUM 100%GLUTAMINE HPLC-Tested & Ultra Pure Platinum 100% Glutamine delivers pure, HPLC-tested L-glutamine to help replenish what’s lost during intense training — supporting muscle recovery and immune health.","img":"cut/p38.webp","cut":true,"vs":[{"id":48901981962397,"t":"Default Title","p":1750}]},{"id":"p39","h":"all-9-amino-acids-usn","t":"All 9 Amino Acids USN","c":"amino","s":0,"v":47580010348701,"p":2000,"d":"ALL9™ Amino contains the nine essential amino acids that your body needs but cannot produce naturally.","img":"img/p39.jpg","cut":false,"vs":[{"id":47580010348701,"t":"Jelly Bean","p":2000}]},{"id":"p40","h":"bodyfuel™-ultimate-aminos","t":"BodyFuel™ Ultimate Aminos","c":"amino","s":0,"v":47577442287773,"p":2150,"d":"BodyFuel™ Ultimate Aminos BodyFuel™ Ultimate Amino’s has been carefully formulated to deliver intra-workout support for anyone who takes part in exercise.","img":"cut/p40.webp","cut":true,"vs":[{"id":47577442287773,"t":"Raspberry","p":2150}]}];
+const ASOF = '20 Nov 2026';
 const STORE = 'https://s3effect.com';
+const DELIVERY = {cairo:{fee:100,en:'Cairo & Giza',ar:'القاهرة والجيزة',de:'1–2 business days',da:'1–2 يوم عمل'}, other:{fee:150,en:'Other governorates',ar:'باقي المحافظات',de:'3–5 business days',da:'3–5 أيام عمل'}};
 const by = Object.fromEntries(D.map(p => [p.id, p]));
 const CAT = {protein:['Protein','بروتين','#5a0d14'],creatine:['Creatine','كرياتين','#123a5c'],burn:['Fat burners','حرق وتنشيف','#5c2a06'],pre:['Pre-workout','بري وركآوت','#3b1060'],amino:['Aminos','أمينو واستشفاء','#4f4a08'],health:['Health','صحة عامة','#0d4a2c'],carb:['Carbs','كربوهيدرات','#5a3a0d']};
 const GOALS = [
@@ -407,128 +497,270 @@ const GOALS = [
 ];
 const BRANDS = ['Animal','Nutrend','USN','BioTech USA','MuscleTech','Applied Nutrition','Allmax','Pro Supps','Cellucor','Nutrex','Gorilla','Body Fuel'];
 const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let lang = 'en';
+const store = {get(k, d){try{const v = JSON.parse(localStorage.getItem(k)); return v ?? d}catch(e){return d}}, set(k, v){try{localStorage.setItem(k, JSON.stringify(v))}catch(e){}}};
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let lang = store.get('s3lang2', 'en') === 'ar' ? 'ar' : 'en';
 const L = (e, a) => lang === 'en' ? e : a;
 const money = n => L('EGP ' + n.toLocaleString('en-US'), n.toLocaleString('en-US') + ' ج.م');
-const store = {get(k, d){try{return JSON.parse(localStorage.getItem(k)) ?? d}catch(e){return d}}, set(k, v){try{localStorage.setItem(k, JSON.stringify(v))}catch(e){}}};
-const im = (p, cls = '') => `<img class="${cls} ${p.cut ? '' : 'pl'}" src="${p.img}" alt="${esc(p.t)}" loading="lazy">`;
+const pimg = (p, cls = '') => `<img class="${cls}${p.cut ? '' : ' pl'}" src="${p.img}" alt="${esc(p.t)}" loading="lazy" decoding="async">`;
+const buzz = () => { try{ navigator.vibrate && navigator.vibrate(12); }catch(e){} };
+const plusSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
 
-/* static chrome */
+/* ---------- bag state (keyed by product + variant) ---------- */
+let bag = store.get('s3bag3', null);
+if (!bag){ bag = {}; const old = store.get('s3cart', {}); for (const id in old) if (by[id]) bag[id + '|' + by[id].v] = {id, v: by[id].v, q: old[id]}; }
+for (const k in bag){ const l = bag[k]; if (!by[l.id] || !by[l.id].vs.some(v => v.id === l.v) || !(l.q > 0)) delete bag[k]; }
+let zone = store.get('s3zone', 'cairo'); if (!DELIVERY[zone]) zone = 'cairo';
+const vOf = l => by[l.id].vs.find(v => v.id === l.v);
+const lines = () => Object.entries(bag).map(([k, l]) => ({k, ...l, p: by[l.id], var: vOf(l)}));
+const count = () => lines().reduce((s, l) => s + l.q, 0);
+const subtotal = () => lines().reduce((s, l) => s + l.var.p * l.q, 0);
+const qtyOf = id => lines().filter(l => l.id === id).reduce((s, l) => s + l.q, 0);
+const checkoutUrl = () => STORE + '/cart/' + lines().map(l => l.v + ':' + l.q).join(',');
+function setLine(id, v, q){ const k = id + '|' + v; if (q <= 0) delete bag[k]; else bag[k] = {id, v, q: Math.min(q, 20)}; store.set('s3bag3', bag); onBag(id); }
+function addItem(id, v, src){ const p = by[id]; v = v || p.v; const k = id + '|' + v; setLine(id, v, (bag[k]?.q || 0) + 1); buzz(); if (src) fly(src, p); }
+function addMany(ids, srcEls){ ids.forEach((id, i) => setTimeout(() => addItem(id, null, srcEls && srcEls[i]), i * 140)); }
+
+/* ---------- add control: same footprint in every state ---------- */
+function ctl(id, wide){
+  const p = by[id], q = qtyOf(id), multi = p.vs.length > 1;
+  const cls = 'ctl' + (wide ? ' wide' : '');
+  if (!q || multi || wide) return `<div class="${cls}" data-ctl="${id}">${wide && q && !multi ? stepper(id, q) : `<button class="add" data-add="${id}" aria-label="${L('Add to bag', 'أضف للسلة')}">${wide ? L('Add to bag', 'أضف للسلة') + (q && multi ? ` · ${q}` : '') : (multi && q ? `<b style="font-size:15px">${q}</b>` : plusSvg)}</button>`}</div>`;
+  return `<div class="${cls}" data-ctl="${id}">${stepper(id, q)}</div>`;
+}
+const stepper = (id, q) => `<div class="stp"><button data-dec="${id}" aria-label="${L('Remove one', 'شيل واحد')}">−</button><span aria-live="polite">${q}</span><button data-inc="${id}" aria-label="${L('Add one', 'زوّد واحد')}">+</button></div>`;
+function syncCtl(id){ $$(`[data-ctl="${id}"]`).forEach(el => { el.outerHTML = ctl(id, el.classList.contains('wide')); }); }
+function onBag(id){
+  if (id) syncCtl(id); else $$('[data-ctl]').forEach(el => syncCtl(el.dataset.ctl));
+  const n = count(); const c = $('#cnt'); if (c.textContent !== String(n)){ c.textContent = n; c.classList.remove('bump'); void c.offsetWidth; c.classList.add('bump'); }
+  renderBagBar(); if ($('#bag').open) renderBag(); if ($('#pdp').open && pdpId === id) renderPdpFoot();
+}
+
+/* ---------- fly to bag ---------- */
+function fly(srcEl, p){
+  if (reduce) return;
+  const img = srcEl.closest('.card,.pick,.scene,.line,#pdp,.panel')?.querySelector('img:not(.bgimg)') || null;
+  const from = (img || srcEl).getBoundingClientRect();
+  const bar = $('#bagbar'); const target = (bar.classList.contains('show') ? $('#bagbarBtn') : $('#bagBtn')).getBoundingClientRect();
+  const el = document.createElement('img'); el.className = 'fly'; el.src = p.img; el.alt = '';
+  const s = Math.min(from.width, from.height, 140) || 80;
+  Object.assign(el.style, {left: from.left + from.width / 2 - s / 2 + 'px', top: from.top + from.height / 2 - s / 2 + 'px', width: s + 'px', height: s + 'px'});
+  document.body.appendChild(el);
+  const dx = target.left + target.width / 2 - (from.left + from.width / 2), dy = target.top + target.height / 2 - (from.top + from.height / 2);
+  const a = el.animate([
+    {transform: 'translate(0,0) scale(1) rotate(0)', opacity: 1},
+    {transform: `translate(${dx * .5}px,${dy * .5 - 120}px) scale(.75) rotate(-12deg)`, opacity: 1, offset: .55},
+    {transform: `translate(${dx}px,${dy}px) scale(.18) rotate(-24deg)`, opacity: .4}
+  ], {duration: 650, easing: 'cubic-bezier(.4,0,.2,1)'});
+  a.onfinish = () => { el.remove(); burst(target); };
+}
+function burst(r){
+  if (reduce) return;
+  const cx = r.left + r.width / 2, cy = r.top + r.height / 2, cols = ['#e3101e', '#ffffff', '#ff8a3d'];
+  for (let i = 0; i < 10; i++){
+    const b = document.createElement('i'); b.className = 'burst'; b.style.left = cx + 'px'; b.style.top = cy + 'px'; b.style.background = cols[i % 3]; document.body.appendChild(b);
+    const ang = (i / 10) * Math.PI * 2, d = 26 + Math.random() * 18;
+    b.animate([{transform: 'translate(0,0) rotate(0)', opacity: 1}, {transform: `translate(${Math.cos(ang) * d}px,${Math.sin(ang) * d}px) rotate(180deg)`, opacity: 0}], {duration: 520, easing: 'cubic-bezier(.2,.8,.3,1)'}).onfinish = () => b.remove();
+  }
+}
+
+/* ---------- screens (bag, product) ---------- */
+const lockOn = () => document.documentElement.classList.add('lock');
+const lockOff = () => { if (!$('#bag').open && !$('#pdp').open) document.documentElement.classList.remove('lock'); };
+function openScr(d){ if (d.open) return; try{ d.showModal(); }catch(e){ d.setAttribute('open', ''); } lockOn(); d.querySelector('.sb').scrollTop = 0; }
+function closeScr(d){ if (!d.open) return; d.close(); lockOff(); }
+$$('dialog.scr').forEach(d => {
+  d.addEventListener('click', e => { if (e.target === d || e.target.closest('[data-close]')) closeScr(d); });
+  d.addEventListener('close', lockOff);
+  const grab = d.querySelector('[data-grab]'), head = d.querySelector('.sh'); let y0 = null, dy = 0;
+  [grab, head].forEach(h => {
+    h.addEventListener('pointerdown', e => { if (e.target.closest('button')) return; y0 = e.clientY; dy = 0; d.style.transition = 'none'; });
+  });
+  d.addEventListener('pointermove', e => { if (y0 === null) return; dy = Math.max(0, e.clientY - y0); d.style.transform = `translateY(${dy}px)`; });
+  const end = () => { if (y0 === null) return; y0 = null; d.style.transition = 'transform .2s'; if (dy > 110) { d.style.transform = 'translateY(100%)'; setTimeout(() => { closeScr(d); d.style.transform = ''; d.style.transition = ''; }, 190); } else d.style.transform = ''; };
+  d.addEventListener('pointerup', end); d.addEventListener('pointercancel', end);
+});
+
+function renderBagBar(){
+  const n = count(), bar = $('#bagbar');
+  bar.classList.toggle('show', n > 0);
+  if (!n) return;
+  const th = lines().slice(0, 3).map(l => `<img src="${l.p.img}" alt="">`).join('');
+  $('#bagbarBtn').innerHTML = `<span class="thumbs">${th}</span><span class="t">${L('Bag', 'السلة')} · ${n} · <span class="price">${money(subtotal())}</span></span><span class="go">${L('View', 'عرض')} <span class="arw">→</span></span>`;
+}
+$('#bagbarBtn').addEventListener('click', () => { renderBag(true); openScr($('#bag')); });
+$('#bagBtn').addEventListener('click', () => { renderBag(true); openScr($('#bag')); });
+
+function renderBag(fresh){
+  const ls = lines(), n = count();
+  $('#bagBody').classList.toggle('fresh', !!fresh);
+  $('#bagT').textContent = L('Your bag', 'السلة بتاعتك') + (n ? ` (${n})` : '');
+  if (!n){
+    $('#bagBody').innerHTML = `<div class="emptyb"><div class="big">${L('Empty bag.', 'السلة فاضية.')}</div><p>${L('Build a stack in four taps, or browse the drop.', 'ابني Stack في 4 ضغطات، أو اتفرّج على المتجر.')}</p><a class="btn r" href="#stack" data-close>${L('Build my stack', 'ابني الـStack')}</a></div>`;
+    $('#bagFoot').innerHTML = ''; return;
+  }
+  const z = DELIVERY[zone], sub = subtotal(), tot = sub + z.fee;
+  const today = new Date().toLocaleDateString(L('en-GB', 'ar-EG'), {day: 'numeric', month: 'short', year: 'numeric'});
+  $('#bagBody').innerHTML = ls.map(l => `<div class="line"><div class="im" style="--c:${CAT[l.p.c][2]}">${pimg(l.p)}</div><div class="meta"><div class="top"><div><div class="nm">${esc(l.p.t)}</div>${l.p.vs.length > 1 ? `<div class="v">${esc(l.var.t)}</div>` : ''}</div><span class="price">${money(l.var.p * l.q)}</span></div><div class="bot"><div class="stp"><button data-ld="${l.k}" aria-label="-">−</button><span>${l.q}</span><button data-li="${l.k}" aria-label="+">+</button></div><button class="rm" data-lr="${l.k}">${L('Remove', 'شيل')}</button></div></div></div>`).join('') +
+  `<h3 style="margin-top:20px">${L('Delivery', 'التوصيل')}</h3><div class="seg">${Object.entries(DELIVERY).map(([k, d]) => `<button class="${k === zone ? 'on' : ''}" data-zone="${k}"><span>${L(d.en, d.ar)}</span><small>${L(d.de, d.da)} · ${money(d.fee)}</small></button>`).join('')}</div>
+   <div class="pays"><span>${L('Cash on delivery', 'كاش عند الاستلام')}</span><span>InstaPay</span></div>
+   <div class="rcpt" id="rcpt"><div class="rh"><img src="img/logo.png" alt="S3"><div style="text-align:end"><b>${L('BAG SUMMARY', 'ملخص السلة')}</b><div style="font-size:12px;color:#666">${today}</div></div></div>
+     ${ls.map(l => `<div class="rl"><span>${l.q}×</span><span class="n">${esc(l.p.t)}${l.p.vs.length > 1 ? ' · ' + esc(l.var.t) : ''}</span><span class="dots"></span><span class="price">EGP ${(l.var.p * l.q).toLocaleString('en-US')}</span></div>`).join('')}
+     <div class="sum"><div class="rl"><span class="n">${L('Subtotal', 'المجموع')}</span><span class="price">EGP ${sub.toLocaleString('en-US')}</span></div><div class="rl"><span class="n">${L('Delivery', 'التوصيل')} · ${L(z.en, z.ar)}</span><span class="price">EGP ${z.fee}</span></div>
+     <div class="tot"><span>${L('TOTAL', 'الإجمالي')}</span><span>EGP ${tot.toLocaleString('en-US')}</span></div></div>
+     <span class="stamp">PUSH. BEYOND.</span>
+     <p class="fine">${L('Not an invoice. S3 issues the official invoice after checkout. Delivery fees as shown at S3 checkout on 19 Nov 2026.', 'ده مش فاتورة. S3 بتطلّع الفاتورة الرسمية بعد الدفع. رسوم التوصيل زي صفحة الدفع بتاعة S3 يوم 19 نوفمبر 2026.')}</p></div>
+   <div class="acts"><button class="btn" id="copySum">${L('Copy summary', 'انسخ الملخص')}</button><a class="btn" id="waSum" href="https://wa.me/?text=${encodeURIComponent(summaryText())}">${L('Share on WhatsApp', 'ابعته واتساب')}</a></div>`;
+  $('#bagFoot').innerHTML = `<a class="btn r full" href="${checkoutUrl()}"><span>${L('Checkout', 'كمّل الدفع')} · ${money(tot)}</span> <span class="arw">→</span></a><p class="note" style="text-align:center;margin-top:8px">${L('Secure checkout on s3effect.com — same items, same quantities.', 'الدفع الآمن على s3effect.com — نفس المنتجات ونفس الكميات.')}</p>`;
+}
+function summaryText(){
+  const z = DELIVERY[zone], sub = subtotal();
+  return ['S3EFFECT — ' + L('bag summary', 'ملخص السلة'), ...lines().map(l => `${l.q}× ${l.p.t}${l.p.vs.length > 1 ? ' (' + l.var.t + ')' : ''} — EGP ${(l.var.p * l.q).toLocaleString('en-US')}`), `${L('Subtotal', 'المجموع')}: EGP ${sub.toLocaleString('en-US')}`, `${L('Delivery', 'التوصيل')} (${L(z.en, z.ar)}): EGP ${z.fee}`, `${L('Total', 'الإجمالي')}: EGP ${(sub + z.fee).toLocaleString('en-US')}`, L('Checkout: ', 'الدفع: ') + checkoutUrl()].join('\n');
+}
+$('#bag').addEventListener('click', e => {
+  const t = e.target.closest('[data-li],[data-ld],[data-lr],[data-zone],#copySum'); if (!t) return;
+  if (t.dataset.zone){ zone = t.dataset.zone; store.set('s3zone', zone); renderBag(); return; }
+  if (t.id === 'copySum'){ const txt = summaryText(); const done = () => { t.textContent = L('Copied ✓', 'اتنسخ ✓'); }; try{ navigator.clipboard.writeText(txt).then(done, () => { t.textContent = L('Copy blocked here', 'النسخ مقفول هنا'); }); }catch(err){ t.textContent = L('Copy blocked here', 'النسخ مقفول هنا'); } return; }
+  const k = t.dataset.li || t.dataset.ld || t.dataset.lr, l = bag[k]; if (!l) return;
+  const q = t.dataset.lr ? 0 : l.q + (t.dataset.li ? 1 : -1); setLine(l.id, l.v, q); buzz();
+});
+
+/* product screen */
+let pdpId = null, pdpV = null;
+function openPdp(id){
+  const p = by[id]; pdpId = id; pdpV = p.v;
+  const goals = GOALS.filter(g => g.cats.includes(p.c)).map(g => `<span class="badge">${L(g.en, g.ar)}</span>`).join('');
+  $('#pdpT').textContent = L(CAT[p.c][0], CAT[p.c][1]);
+  $('#pdpBody').innerHTML = `<div class="pdph" style="--c:${CAT[p.c][2]}"><span class="gt">${esc(CAT[p.c][0])}</span>${pimg(p)}</div>
+    <h2 class="nm" style="font-size:24px;line-height:1.2">${esc(p.t)}</h2>
+    <div class="row" style="margin:10px 0"><span class="price" style="font-size:26px" id="pdpPrice">${money(p.p)}</span><div class="badges">${goals}</div></div>
+    ${p.vs.length > 1 ? `<div class="note">${L('Flavour', 'الطعم')}</div><div class="flvs" id="flvs">${p.vs.map(v => `<button class="${v.id === pdpV ? 'on' : ''}" data-flv="${v.id}">${esc(v.t)}</button>`).join('')}</div>` : ''}
+    <p class="ds" style="margin-top:14px">${esc(p.d)}</p>
+    <p class="note" style="margin-top:12px">${L('Description from the s3effect.com product page. Batch and best-before appear here once S3 adds them.', 'الوصف من صفحة المنتج على s3effect.com. رقم التشغيلة وتاريخ الانتهاء هيظهروا هنا لما S3 تضيفهم.')}</p>
+    <div class="row" style="margin-top:16px"><button class="btn" data-askabout="${p.id}">${L('Ask the coach', 'اسأل المستشار')}</button><a class="note" href="${STORE}/products/${p.h}">${L('Product page ↗', 'صفحة المنتج ↗')}</a></div>`;
+  renderPdpFoot(); openScr($('#pdp'));
+}
+function renderPdpFoot(){
+  const p = by[pdpId], k = pdpId + '|' + pdpV, q = bag[k]?.q || 0, v = p.vs.find(x => x.id === pdpV);
+  $('#pdpFoot').innerHTML = q ? `<div class="row" style="flex-wrap:nowrap"><div class="stp" style="background:var(--bg2);color:var(--ink);border:1px solid var(--line);flex:none;animation:none"><button data-pd style="color:var(--ink)">−</button><span>${q}</span><button data-pi style="color:var(--ink)">+</button></div><button class="btn r" style="flex:1" id="pdpBag">${L('View bag', 'عرض السلة')} · ${money(subtotal())}</button></div>`
+    : `<button class="btn r full" data-padd>${L('Add to bag', 'أضف للسلة')} · ${money(v.p)}</button>`;
+}
+$('#pdp').addEventListener('click', e => {
+  const f = e.target.closest('[data-flv]'); if (f){ pdpV = +f.dataset.flv; $$('#flvs button').forEach(b => b.classList.toggle('on', b === f)); $('#pdpPrice').textContent = money(by[pdpId].vs.find(v => v.id === pdpV).p); renderPdpFoot(); return; }
+  if (e.target.closest('[data-padd]')){ addItem(pdpId, pdpV, $('#pdp .pdph')); return; }
+  if (e.target.closest('[data-pi]')){ const k = pdpId + '|' + pdpV; setLine(pdpId, pdpV, (bag[k]?.q || 0) + 1); buzz(); return; }
+  if (e.target.closest('[data-pd]')){ const k = pdpId + '|' + pdpV; setLine(pdpId, pdpV, (bag[k]?.q || 0) - 1); buzz(); return; }
+  if (e.target.closest('#pdpBag')){ closeScr($('#pdp')); renderBag(true); openScr($('#bag')); return; }
+  const a = e.target.closest('[data-askabout]'); if (a){ closeScr($('#pdp')); $('#coach').scrollIntoView(); send(L('Tell me about ', 'احكيلي عن ') + by[a.dataset.askabout].t + L(' — who is it for?', '، يناسب مين؟')); }
+});
+
+/* global add / stepper / open handlers (event delegation) */
+document.addEventListener('click', e => {
+  const add = e.target.closest('[data-add]'); if (add){ e.preventDefault(); const p = by[add.dataset.add]; if (p.vs.length > 1) openPdp(p.id); else addItem(p.id, null, add); return; }
+  const inc = e.target.closest('[data-inc]'); if (inc){ const p = by[inc.dataset.inc]; addItem(p.id); return; }
+  const dec = e.target.closest('[data-dec]'); if (dec){ const p = by[dec.dataset.dec], k = p.id + '|' + p.v; setLine(p.id, p.v, (bag[k]?.q || 0) - 1); buzz(); return; }
+  const op = e.target.closest('[data-open]'); if (op){ openPdp(op.dataset.open); return; }
+  const tg = e.target.closest('[data-tag]'); if (tg){ e.stopPropagation(); addItem(tg.dataset.tag, null, tg); tg.querySelector('i').textContent = L('Added ✓', 'اتضاف ✓'); return; }
+  const cl = e.target.closest('a[data-close]'); if (cl){ closeScr(cl.closest('dialog')); }
+});
+
+/* ---------- static chrome ---------- */
 function chrome(){
   const links = [['goals','Goals','الأهداف'],['stack','Build a stack','ابني الـStack'],['coach','S3 Coach','S3 Coach'],['shop','Shop','المتجر'],['promise','Authentic','ضمان الأصلي'],['black','S3 Black','S3 Black']];
   const h = links.map(([id, e, a]) => `<a href="#${id}">${L(e, a)}</a>`).join('');
   $('#nav1').innerHTML = h; $('#nav2').innerHTML = h;
-  const t = L(['Authentic global brands','Delivery to every governorate','Cash on delivery & Instapay','AI coach 24/7','Build your stack in 4 taps','Since 2012'], ['ماركات عالمية أصلية','توصيل لكل المحافظات','الدفع كاش أو InstaPay','مساعد ذكي 24 ساعة','ابني الـStack في 4 ضغطات','من 2012']);
+  const t = L(['Authentic global brands','Delivery to every governorate','Cash on delivery & InstaPay','AI coach 24/7','Build your stack in 4 taps','Since 2012'], ['ماركات عالمية أصلية','توصيل لكل المحافظات','الدفع كاش أو InstaPay','مساعد ذكي 24 ساعة','ابني الـStack في 4 ضغطات','من 2012']);
   $('#tape1').innerHTML = [...t, ...t].map(x => `<span>${x}</span>`).join('');
   $('#brands').innerHTML = [...BRANDS, ...BRANDS].map(x => `<span>${x}</span>`).join('');
+  const HL = [['protein','p2',L('Protein','بروتين')],['creatine','p9',L('Creatine','كرياتين')],['burn','p19',L('Burn','حرق')],['pre','p26',L('Pre','بري')],['amino','p34',L('Aminos','أمينو')],['health','p27',L('Health','صحة')],['#stack','',L('Stacks','Stacks')],['#coach','',L('Coach','المساعد')]];
+  $('#hl').innerHTML = HL.map(([k, i, t]) => `<button class="hi" data-hl="${k}"><span class="ring"><span class="in">${i ? `<img src="${by[i].img}" alt="" loading="lazy">` : `<b>${k === '#stack' ? 'S3' : 'AI'}</b>`}</span></span><span>${t}</span></button>`).join('');
   $('#askIn').placeholder = L('Ask the coach…', 'اكتب سؤالك…');
   $('#q').placeholder = L('Search: whey, creatine, burn…', 'دوّر: whey، كرياتين، حرق…');
   $('#wn').placeholder = L('Name', 'الاسم'); $('#wp').placeholder = L('Mobile number', 'رقم الموبايل');
+  $('#asof').textContent = L(`A selection of in-stock products from s3effect.com — prices and stock checked ${ASOF}.`, `مختارات من المتوفر على s3effect.com — الأسعار والمخزون اتراجعوا ${ASOF}.`);
 }
+$('#hl').addEventListener('click', e => { const b = e.target.closest('[data-hl]'); if (!b) return; const k = b.dataset.hl; if (k.startsWith('#')){ $(k).scrollIntoView(); return; } filter = k; renderShop(); $('#shop').scrollIntoView(); });
 function setLang(l){ lang = l; document.documentElement.lang = l; document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr'; store.set('s3lang2', l); renderAll(); }
 $('#lang').addEventListener('click', () => setLang(lang === 'en' ? 'ar' : 'en'));
 
-/* story reel */
-const SC = () => {
+/* ---------- story reel with shoppable tags ---------- */
+let scenes = [], si = 0, paused = reduce, held = false, elapsed = 0, last = 0, onScreen = true;
+const DUR = 3600;
+function sceneDefs(){
   const w = by.p2, c = [by.p9, by.p6, by.p7], s = [by.p5, by.p9, by.p26], tot = s.reduce((t, x) => t + x.p, 0);
+  const minC = Math.min(...D.filter(p => p.c === 'creatine').map(p => p.p));
+  const tag = (p, pos) => `<button class="ptag" style="${pos}" data-tag="${p.id}"><span>${esc(p.t.split(' - ')[0].split(' ').slice(0, 3).join(' '))}<small>${money(p.p)}</small></span><i>${L('+ Bag', '+ سلة')}</i></button>`;
   return [
-    {html:`<div class="scene s1"><img class="bgimg" src="img/hero.jpg" alt=""><div class="big"><span>Push.</span><span>Beyond.</span></div><div class="cap" style="bottom:78px">${L('Real brands. Real results.', 'ماركات أصلية. نتايج حقيقية.')}</div></div>`, cta:['#shop', L('Shop the drop', 'تسوّق دلوقتي')]},
-    {html:`<div class="scene sp"><div class="giant">PROTEIN PROTEIN</div><div class="giant f">WHEY ISO WHEY</div><img class="hero-prod" src="${w.img}" alt=""><div class="sticker"><small>${L('Animal Whey', 'Animal Whey')}</small>${money(w.p)}</div><div class="cap">${L('Isolate-loaded whey', 'واي بروتين أيزوليت')}</div></div>`, cta:['#shop', L('Shop protein', 'تسوّق بروتين')], f:'protein'},
-    {html:`<div class="scene sp k"><div class="giant">CREATINE CREATINE</div><div class="fan">${c.map(p => `<img src="${p.img}" alt="">`).join('')}</div><div class="cap">${L('Creatine, from ', 'كرياتين من ') + money(Math.min(...D.filter(p => p.c === 'creatine').map(p => p.p)))}</div></div>`, cta:['#shop', L('Shop creatine', 'تسوّق كرياتين')], f:'creatine'},
-    {html:`<div class="scene sp"><div class="giant f">STACK STACK</div><div class="cap" style="top:14%;bottom:auto">${L('Build your stack', 'ابني الـStack بتاعك')}</div><div class="stk">${s.map(p => `<img src="${p.img}" alt="">`).join('')}</div><div class="receipt"><span>${L('3 products', '3 منتجات')}</span><span>${money(tot)}</span></div></div>`, cta:['#stack', L('Build mine', 'ابني بتاعي')]},
+    {html:`<div class="scene s1"><img class="bgimg" src="img/hero.jpg" alt=""><div class="big"><span>Push.</span><span>Beyond.</span></div><div class="cap">${L('Real brands. Real results.', 'ماركات أصلية. نتايج حقيقية.')}</div></div>`, cta:['#shop', L('Shop the drop', 'تسوّق دلوقتي')]},
+    {html:`<div class="scene sp"><div class="giant">PROTEIN PROTEIN</div><div class="giant f">WHEY ISO WHEY</div><img class="hero-prod" src="${w.img}" alt=""><div class="sticker"><small>Animal Whey</small>${money(w.p)}</div>${tag(w, 'left:8%;top:62%')}<div class="cap">${L('Isolate-loaded whey', 'واي بروتين أيزوليت')}</div></div>`, cta:['#shop', L('Shop protein', 'تسوّق بروتين'), 'protein']},
+    {html:`<div class="scene sp k"><div class="giant">CREATINE CREATINE</div><div class="fan">${c.map(p => `<img src="${p.img}" alt="">`).join('')}</div>${tag(by.p6, 'right:6%;top:20%')}<div class="cap">${L('Creatine, from ', 'كرياتين من ') + money(minC)}</div></div>`, cta:['#shop', L('Shop creatine', 'تسوّق كرياتين'), 'creatine']},
+    {html:`<div class="scene sp"><div class="giant f">STACK STACK</div><div class="cap" style="top:14%;bottom:auto">${L('Build your stack', 'ابني الـStack بتاعك')}</div><div class="stk">${s.map(p => `<img src="${p.img}" alt="">`).join('')}</div><div class="receiptmini"><span>${L('3 products', '3 منتجات')}</span><span>${money(tot)}</span></div></div>`, cta:['#stack', L('Build mine', 'ابني بتاعي')]},
     {html:`<div class="scene sc s5"><div class="cap">${L('Ask S3 Coach', 'اسأل S3 Coach')}</div><div class="cbox"><div class="cb me">${L('Whey or clear whey for cutting?', 'Whey ولا Clear Whey للتنشيف؟')}</div><div class="cb ai t"><i></i><i></i><i></i></div><div class="cb ai">${L('Clear whey is lighter and juice-like — easy on a cut. Want me to add one?', 'الـClear أخف وطعمه زي العصير — مريح في التنشيف. أضيفلك واحد؟')}</div></div></div>`, cta:['#coach', L('Chat now', 'كلّمه دلوقتي')]}
   ];
-};
-let scenes = [], si = 0, t0 = 0, paused = false, held = false, raf = 0, elapsed = 0, visibleReel = true;
-const DUR = 3400;
+}
 function buildReel(){
-  scenes = SC();
+  scenes = sceneDefs();
   $('#scenes').innerHTML = scenes.map(s => s.html).join('');
   $('#bars').innerHTML = scenes.map(() => '<i><b></b></i>').join('');
-  show(si, true);
+  show(si);
 }
 function show(i){
-  si = (i + scenes.length) % scenes.length; elapsed = 0; t0 = performance.now();
-  const els = $('#scenes').children;
-  [...els].forEach((e, k) => e.classList.toggle('on', k === si));
-  [...$('#bars').children].forEach((b, k) => b.firstChild.style.width = k < si ? '100%' : '0%');
-  const c = scenes[si].cta; $('#rcta').innerHTML = `<a href="${c[0]}" data-rf="${scenes[si].f || ''}">${c[1]} ↗</a>`;
+  si = (i + scenes.length) % scenes.length; elapsed = 0;
+  [...$('#scenes').children].forEach((e, k) => e.classList.toggle('on', k === si));
+  [...$('#bars').children].forEach((b, k) => { b.firstChild.style.transform = `scaleX(${k < si ? 1 : 0})`; });
+  const c = scenes[si].cta; $('#rcta').innerHTML = `<a href="${c[0]}" data-rf="${c[2] || ''}">${c[1]} ↗</a>`;
   $('#rtime').textContent = (si + 1) + '/' + scenes.length;
 }
 function tick(now){
-  if (!paused && !held && visibleReel){
-    elapsed += now - t0;
-    const pct = Math.min(1, elapsed / DUR);
-    const b = $('#bars').children[si]; if (b) b.firstChild.style.width = (pct * 100) + '%';
+  const dt = Math.min(100, now - (last || now)); last = now;
+  if (!paused && !held && onScreen && !document.hidden){
+    elapsed += dt; const pct = Math.min(1, elapsed / DUR);
+    const b = $('#bars').children[si]; if (b) b.firstChild.style.transform = `scaleX(${pct})`;
     if (pct >= 1) show(si + 1);
   }
-  t0 = now; raf = requestAnimationFrame(tick);
+  requestAnimationFrame(tick);
 }
 $('#tapR').addEventListener('click', () => show(lang === 'ar' ? si - 1 : si + 1));
 $('#tapL').addEventListener('click', () => show(lang === 'ar' ? si + 1 : si - 1));
-const reel = $('#reel');
-let holdT = 0;
-reel.addEventListener('pointerdown', () => { holdT = setTimeout(() => { held = true; reel.classList.add('paused'); }, 220); });
-['pointerup','pointercancel','pointerleave'].forEach(ev => reel.addEventListener(ev, () => { clearTimeout(holdT); if (held){ held = false; reel.classList.remove('paused'); } }));
-$('#rcta').addEventListener('click', e => { const a = e.target.closest('[data-rf]'); if (a && a.dataset.rf){ filter = a.dataset.rf; open = null; renderShop(); } });
-try{ new IntersectionObserver(es => { visibleReel = es[0].isIntersecting; }).observe(reel); }catch(e){}
-document.addEventListener('visibilitychange', () => { paused = document.hidden; });
-if (matchMedia('(prefers-reduced-motion: reduce)').matches) paused = true;
+const reel = $('#reel'); let holdT = 0;
+reel.addEventListener('pointerdown', e => { if (e.target.closest('.ptag,.rcta')) return; holdT = setTimeout(() => { held = true; }, 220); });
+['pointerup','pointercancel','pointerleave'].forEach(ev => reel.addEventListener(ev, () => { clearTimeout(holdT); held = false; }));
+reel.addEventListener('contextmenu', e => e.preventDefault());
+$('#rcta').addEventListener('click', e => { const a = e.target.closest('[data-rf]'); if (a && a.dataset.rf){ filter = a.dataset.rf; renderShop(); } });
+try{ new IntersectionObserver(es => { onScreen = es[0].isIntersecting; }).observe(reel); }catch(e){}
+document.addEventListener('visibilitychange', () => document.documentElement.classList.toggle('idle', document.hidden));
 
-/* cart */
-let cart = store.get('s3cart', {});
-for (const k in cart) if (!by[k]) delete cart[k];
-function addCart(ids){ ids.forEach(id => { if (by[id]) cart[id] = (cart[id] || 0) + 1; }); saveCart(); const c = $('#cnt'); c.classList.remove('bump'); void c.offsetWidth; c.classList.add('bump'); }
-function saveCart(){ store.set('s3cart', cart); renderCart(); renderGrid(); document.querySelectorAll('.pick [data-add]').forEach(b => { const on = !!cart[b.dataset.add]; b.classList.toggle('done', on); b.textContent = on ? '✓' : '+'; }); }
-function cartTotal(){ return Object.entries(cart).reduce((s, [id, q]) => s + by[id].p * q, 0); }
-function renderCart(){
-  const ids = Object.keys(cart); $('#cnt').textContent = ids.reduce((s, id) => s + cart[id], 0);
-  if (!ids.length){ $('#cartIn').innerHTML = `<p class="note">${L('Your cart is empty. Start with “Build a stack” or the shop.', 'السلة فاضية. ابدأ من «ابني الـStack» أو المتجر.')}</p>`; return; }
-  const link = STORE + '/cart/' + ids.map(id => by[id].v + ':' + cart[id]).join(',');
-  $('#cartIn').innerHTML = ids.map(id => { const p = by[id]; return `<div class="cline">${im(p)}<div><div class="ltr" style="font-weight:700;font-size:14.5px;direction:ltr">${esc(p.t)}</div><div class="note price">${money(p.p)}</div></div><div class="qty"><button data-q="${id}" data-d="-1" aria-label="-">−</button><span>${cart[id]}</span><button data-q="${id}" data-d="1" aria-label="+">+</button></div></div>`; }).join('') +
-    `<div class="total"><span>${L('Total', 'الإجمالي')}</span><span class="price">${money(cartTotal())}</span></div>
-     <a class="btn r" href="${link}">${L('Checkout on s3effect.com', 'كمّل الدفع على s3effect.com')} <span class="arw">→</span></a>
-     <p class="note">${L('Opens S3’s official cart with the same items and quantities.', 'الزرار بيفتح سلة S3 الرسمية بنفس المنتجات والكميات.')}</p>`;
-}
-$('#cartIn').addEventListener('click', e => { const b = e.target.closest('[data-q]'); if (!b) return; const id = b.dataset.q; cart[id] += +b.dataset.d; if (cart[id] <= 0) delete cart[id]; saveCart(); });
-$('#cartBtn').addEventListener('click', () => { const c = $('#cart'); const o = !c.classList.contains('open'); c.classList.toggle('open', o); $('#cartBtn').setAttribute('aria-expanded', o); if (o) window.scrollTo({top: 0}); });
-function pickRow(p, role){ return `<div class="pick">${im(p)}<div>${role ? `<div class="role">${role}</div>` : ''}<div class="nm">${esc(p.t)}</div><div class="note price">${money(p.p)}</div></div><button class="add ${cart[p.id] ? 'done' : ''}" data-add="${p.id}" aria-label="${L('Add to cart', 'أضف للسلة')}">${cart[p.id] ? '✓' : '+'}</button></div>`; }
-document.addEventListener('click', e => { const b = e.target.closest('[data-add]'); if (!b) return; e.stopPropagation(); addCart([b.dataset.add]); });
-
-/* goals rail */
-let filter = 'all', query = '', open = null;
+/* ---------- goals ---------- */
+let filter = 'all', query = '';
 function renderGoals(){
   $('#goalRail').innerHTML = GOALS.map(g => { const n = D.filter(p => g.cats.includes(p.c)).length; return `<button class="gc" style="--g:${g.g}" data-goal="${g.k}"><span class="gw">${L(g.w[0], g.w[1])}</span><span class="pr">${g.img.map(i => `<img src="${by[i].img}" alt="" loading="lazy">`).join('')}</span><span class="meta"><span><b>${L(g.en, g.ar)}</b><small>${L(g.se, g.sa)} · ${n} ${L('in stock', 'متاح')}</small></span><span class="go">→</span></span></button>`; }).join('');
 }
-$('#goalRail').addEventListener('click', e => { const b = e.target.closest('[data-goal]'); if (!b) return; filter = 'goal:' + b.dataset.goal; open = null; renderShop(); $('#shop').scrollIntoView(); });
+$('#goalRail').addEventListener('click', e => { const b = e.target.closest('[data-goal]'); if (!b) return; filter = 'goal:' + b.dataset.goal; renderShop(); $('#shop').scrollIntoView(); });
 
-/* shop */
+/* ---------- shop (rendered only when the filter, search or language changes) ---------- */
 function renderCats(){
   const g = filter.startsWith('goal:') ? GOALS.find(x => 'goal:' + x.k === filter) : null;
   const list = [['all', L('All', 'الكل')], ...Object.entries(CAT).map(([k, v]) => [k, L(v[0], v[1])])];
   $('#cats').innerHTML = (g ? `<button class="chip on" data-cat="all">${L(g.en, g.ar)} ✕</button>` : '') + list.map(([k, t]) => `<button class="chip ${filter === k ? 'on' : ''}" data-cat="${k}">${t}</button>`).join('');
 }
-$('#cats').addEventListener('click', e => { const b = e.target.closest('[data-cat]'); if (!b) return; filter = b.dataset.cat; open = null; renderShop(); });
-$('#q').addEventListener('input', e => { query = e.target.value.trim().toLowerCase(); open = null; if (query && filter.startsWith('goal:')){ filter = 'all'; renderCats(); } renderGrid(); });
+$('#cats').addEventListener('click', e => { const b = e.target.closest('[data-cat]'); if (!b) return; filter = b.dataset.cat; renderShop(); });
+let qT = 0;
+$('#q').addEventListener('input', e => { clearTimeout(qT); qT = setTimeout(() => { query = e.target.value.trim().toLowerCase(); if (query && filter.startsWith('goal:')){ filter = 'all'; renderCats(); } renderGrid(); }, 120); });
 const AR_Q = {'واي':'whey','بروتين':'protein','كرياتين':'creatine','حرق':'burn','تنشيف':'burn','كارنيتين':'carnitine','امينو':'amino','أمينو':'amino','فيتامين':'vitamin','اوميجا':'omega','أوميجا':'omega','جلوتامين':'glutamine','كولاجين':'collagen','بري':'pre'};
 function visible(){
   const g = filter.startsWith('goal:') ? GOALS.find(x => 'goal:' + x.k === filter) : null;
   let q = query; for (const k in AR_Q) if (q.includes(k)) q = q.replace(k, AR_Q[k]);
-  return D.filter(p => (filter === 'all' || (g ? g.cats.includes(p.c) : p.c === filter)) && (!q || (p.t + ' ' + p.c + ' ' + p.d).toLowerCase().includes(q)));
+  return D.filter(p => (filter === 'all' || (g ? g.cats.includes(p.c) : p.c === filter)) && (!q || (p.t + ' ' + p.c + ' ' + p.d + ' ' + p.vs.map(v => v.t).join(' ')).toLowerCase().includes(q)));
 }
 function renderGrid(){
-  const h = visible().map(p => `<article class="card"><button class="ph" style="--c:${CAT[p.c][2]}" data-open="${p.id}" aria-label="${esc(p.t)}"><span class="tag">${L(CAT[p.c][0], CAT[p.c][1])}</span>${im(p)}</button><div class="bd"><div class="nm">${esc(p.t)}</div><div class="ft"><span class="price">${money(p.p)}</span><button class="add ${cart[p.id] ? 'done' : ''}" data-add="${p.id}" aria-label="${L('Add to cart', 'أضف للسلة')}">${cart[p.id] ? '✓' : '+'}</button></div></div></article>` + (open === p.id ? detail(p) : '')).join('');
+  const h = visible().map(p => `<article class="card"><button class="ph" style="--c:${CAT[p.c][2]}" data-open="${p.id}" aria-label="${esc(p.t)}"><span class="tag">${L(CAT[p.c][0], CAT[p.c][1])}</span>${pimg(p)}${p.vs.length > 1 ? `<span class="flv">${p.vs.length} ${L('flavours', 'طعم')}</span>` : ''}</button><div class="bd"><div class="nm">${esc(p.t)}</div><div class="ft"><span class="price">${money(p.p)}</span>${ctl(p.id)}</div></div></article>`).join('');
   $('#grid').innerHTML = h || `<p class="empty">${L('No results. Try another word or ask S3 Coach.', 'مفيش نتايج. جرّب كلمة تانية أو اسأل S3 Coach.')}</p>`;
 }
-function detail(p){
-  const goals = GOALS.filter(g => g.cats.includes(p.c)).map(g => `<span class="badge">${L(g.en, g.ar)}</span>`).join('');
-  return `<div class="detail" id="d-${p.id}">${im(p)}<div style="display:grid;gap:12px;align-content:start"><h3 class="ltr" style="direction:ltr">${esc(p.t)}</h3><div class="badges"><span class="badge">${L(CAT[p.c][0], CAT[p.c][1])}</span>${goals}</div><p class="ds">${esc(p.d)}</p><p class="note">${L('Description from the s3effect.com product page. Batch and best-before appear here once S3 adds them.', 'الوصف من صفحة المنتج على s3effect.com. رقم التشغيلة وتاريخ الانتهاء هيظهروا هنا لما S3 تضيفهم.')}</p><div class="row"><span class="price" style="font-size:22px">${money(p.p)}</span><div class="row" style="gap:8px"><button class="btn" data-askabout="${p.id}">${L('Ask the coach', 'اسأل المستشار')}</button><button class="btn r" data-add="${p.id}">${L('Add to cart', 'أضف للسلة')}</button></div></div><a class="note" href="${STORE}/products/${p.h}">${L('Product page on s3effect.com ↗', 'صفحة المنتج على s3effect.com ↗')}</a></div></div>`;
-}
-$('#grid').addEventListener('click', e => { const b = e.target.closest('[data-open]'); if (b){ open = open === b.dataset.open ? null : b.dataset.open; renderGrid(); if (open) document.getElementById('d-' + open)?.scrollIntoView({block: 'nearest'}); return; } const a = e.target.closest('[data-askabout]'); if (a){ $('#coach').scrollIntoView(); send(L('Tell me about ', 'احكيلي عن ') + by[a.dataset.askabout].t + L(' — who is it for?', '، يناسب مين؟')); } });
 function renderShop(){ renderCats(); renderGrid(); }
 
-/* stack builder */
+/* ---------- stack builder ---------- */
 const QS = [
   {k:'goal', en:'What is your main goal?', ar:'هدفك الأساسي إيه؟', o: GOALS.map(g => [g.k, g.en, g.ar, g.se, g.sa])},
   {k:'who', en:'Who is it for?', ar:'الباقة لمين؟', o:[['m','Man','راجل'],['f','Woman','ست']]},
@@ -552,6 +784,7 @@ function choose(cat, a, taken, role){
   return a.tier === 'eco' ? c[0] : a.tier === 'top' ? c[c.length - 1] : c[Math.floor((c.length - 1) / 2)];
 }
 function buildStack(){ const taken = []; return SLOTS[ans.goal].map(([cat, re, ra]) => { const p = choose(cat, ans, taken, re); if (p) taken.push(p.id); return p && {p, role: L(re, ra)}; }).filter(Boolean); }
+const pickRow = (p, role) => `<div class="pick">${pimg(p)}<div>${role ? `<div class="role">${role}</div>` : ''}<div class="nm">${esc(p.t)}</div><div class="note price">${money(p.p)}</div></div>${ctl(p.id)}</div>`;
 function renderQuiz(){
   const bars = `<div class="steps">${QS.map((_, i) => `<i class="${i <= step ? 'on' : ''}"></i>`).join('')}</div>`;
   if (step < QS.length){
@@ -559,9 +792,9 @@ function renderQuiz(){
     $('#quiz').innerHTML = bars + `<div class="q">${L(q.en, q.ar)}</div><div class="opts">${q.o.map(o => `<button class="opt" data-v="${o[0]}"><span>${L(o[1], o[2])}</span>${o[3] ? `<small>${L(o[3], o[4])}</small>` : ''}</button>`).join('')}</div>` + (step ? `<button class="back" id="qb">${L('← Back', '→ رجوع')}</button>` : '');
     return;
   }
-  const s = buildStack(); const tot = s.reduce((t, x) => t + x.p.p, 0); const g = GOALS.find(x => x.k === ans.goal);
-  $('#quiz').innerHTML = bars + `<div class="q">${L('Your stack: ', 'الـStack بتاعك: ') + L(g.en, g.ar)}</div><div class="tower">${s.map(x => im(x.p)).join('')}</div><div class="res">${s.map(x => pickRow(x.p, x.role)).join('')}</div>
-   <div class="total" style="margin-top:14px"><span>${L('Stack total', 'إجمالي الباقة')}</span><span class="price">${money(tot)}</span></div>
+  const s = buildStack(), tot = s.reduce((t, x) => t + x.p.p, 0), g = GOALS.find(x => x.k === ans.goal);
+  $('#quiz').innerHTML = bars + `<div class="q">${L('Your stack: ', 'الـStack بتاعك: ') + L(g.en, g.ar)}</div><div class="tower">${s.map(x => pimg(x.p)).join('')}</div><div class="res">${s.map(x => pickRow(x.p, x.role)).join('')}</div>
+   <div class="row" style="margin-top:14px;font-weight:800"><span>${L('Stack total', 'إجمالي الباقة')}</span><span class="price">${money(tot)}</span></div>
    <div class="row" style="margin-top:14px"><button class="btn r" id="qadd" data-ids="${s.map(x => x.p.id).join(',')}">${L('Add the whole stack', 'أضف الباقة كلها')}</button><button class="btn" id="qask">${L('Ask the coach about it', 'اسأل المستشار عنها')}</button></div>
    <button class="back" id="qr" style="margin-top:6px">${L('Start over', 'ابدأ من الأول')}</button>`;
 }
@@ -569,31 +802,31 @@ $('#quiz').addEventListener('click', e => {
   const o = e.target.closest('.opt'); if (o){ ans[QS[step].k] = o.dataset.v; step++; renderQuiz(); return; }
   if (e.target.closest('#qb')){ step--; renderQuiz(); return; }
   if (e.target.closest('#qr')){ ans = {}; step = 0; renderQuiz(); return; }
-  const add = e.target.closest('#qadd'); if (add){ addCart(add.dataset.ids.split(',')); add.textContent = L('Added to cart ✓', 'اتضافت للسلة ✓'); return; }
+  const add = e.target.closest('#qadd'); if (add){ const imgs = $$('#quiz .tower img'); addMany(add.dataset.ids.split(','), imgs); add.textContent = L('Added to bag ✓', 'اتضافت للسلة ✓'); return; }
   if (e.target.closest('#qask')){ const s = buildStack(); $('#coach').scrollIntoView(); send(L('You suggested this stack: ', 'اقترحتوا عليا الباقة دي: ') + s.map(x => x.p.t).join(' + ') + L('. How do I use it?', '. أستخدمها إزاي؟')); }
 });
 
-/* S3 Coach */
+/* ---------- S3 Coach ---------- */
 const hist = []; let busy = false, sample = null, sampleReady = false, cur = null;
 const SUGG = [['I want to bulk on a 5,000 EGP budget', 'عايز أضخّم وميزانيتي ٥٠٠٠ جنيه'], ['Whey vs Clear Whey?', 'إيه الفرق بين Whey و Clear Whey؟'], ['Lean out without stimulants', 'عايز أنشف من غير منبهات']];
 function renderSugg(){ $('#sugg').innerHTML = hist.length ? '' : SUGG.map(s => `<button class="chip" data-s="${esc(L(s[0], s[1]))}">${esc(L(s[0], s[1]))}</button>`).join(''); }
 $('#sugg').addEventListener('click', e => { const b = e.target.closest('[data-s]'); if (b) send(b.dataset.s); });
 function bubble(cls, text){ const d = document.createElement('div'); d.className = 'msg ' + cls; d.textContent = text; $('#chat').appendChild(d); $('#chat').scrollTop = 1e6; return d; }
 function welcome(){ $('#chat').innerHTML = ''; bubble('ai', L('Welcome to S3. I’m S3 Coach, your private advisor. Tell me your goal, weight and training days and I’ll pick from what’s in stock.', 'أهلًا بيك في S3. أنا S3 Coach، مستشارك الشخصي. قولّي هدفك ووزنك وبتتمرن كام يوم، وأنا أرشحلك من المتوفر.')); renderSugg(); }
-const CATALOG = D.map(p => `${p.id} | ${p.t} | ${p.c} | stim:${p.s === 1 ? 'yes' : p.s === 0 ? 'no' : 'unknown'} | EGP ${p.p} | ${p.d.slice(0, 110)}`).join('\n');
-const SYS = `You are "S3 Coach", the private supplement advisor of S3EFFECT, an Egyptian sports-supplement store (since 2012, delivery across Egypt, authentic global brands; checkout offers cash on delivery and Instapay).
+const CATALOG = D.map(p => `${p.id} | ${p.t}${p.vs.length > 1 ? ' [flavours: ' + p.vs.map(v => v.t).join(', ') + ']' : ''} | ${p.c} | stim:${p.s === 1 ? 'yes' : p.s === 0 ? 'no' : 'unknown'} | EGP ${p.p} | ${p.d.slice(0, 110)}`).join('\n');
+const SYS = `You are "S3 Coach", the private supplement advisor of S3EFFECT, an Egyptian sports-supplement store (since 2012, delivery across Egypt: Cairo & Giza EGP 100 in 1–2 business days, other governorates EGP 150 in 3–5; payment cash on delivery or InstaPay; authentic global brands).
 Style: reply in the customer's language; if Arabic, use warm Egyptian dialect. Confident, friendly, concise: at most 90 words, no lists longer than 3 items, no emoji.
 Rules:
 - Recommend ONLY products from CATALOG, at most 3, and call the tool show_products with their ids whenever you recommend.
-- Call add_to_cart only when the customer clearly asks to add or buy.
+- Call add_to_cart only when the customer clearly asks to add or buy (for products with flavours, the default flavour is added; tell them they can change it).
 - Never claim a product is stimulant-free unless its stim is "no". Never invent facts, doses, ingredients or results beyond the catalog text; for dosing say "follow the label".
 - No medical advice. For illness, pregnancy, medication, heart or blood-pressure issues, or anyone under 18: say an S3 specialist and a doctor should advise, and do not recommend stimulants or boosters.
 - Prices are in EGP exactly as listed. If something is not in the catalog, say it isn't in this selection and suggest the closest item.
 CATALOG (id | name | category | stimulant | price | description):
 ${CATALOG}`;
 const TOOLS = [
-  {name:'show_products', description:'Show product cards to the customer. Use for every recommendation.', inputSchema:{type:'object', properties:{ids:{type:'array', items:{type:'string'}, maxItems:3}}, required:['ids']}, execute:({ids}) => { const ok = (ids || []).filter(i => by[i]).slice(0, 3); if (cur){ let m = cur.querySelector('.mini'); if (!m){ m = document.createElement('div'); m.className = 'mini'; cur.after(m); } m.innerHTML = ok.map(i => pickRow(by[i])).join(''); } return {shown: ok.length}; }},
-  {name:'add_to_cart', description:'Add products to the customer cart. Only when the customer asks.', inputSchema:{type:'object', properties:{ids:{type:'array', items:{type:'string'}}}, required:['ids']}, execute:({ids}) => { const ok = (ids || []).filter(i => by[i]); addCart(ok); return {added: ok.length, cart_total_egp: cartTotal()}; }}
+  {name:'show_products', description:'Show product cards to the customer. Use for every recommendation.', inputSchema:{type:'object', properties:{ids:{type:'array', items:{type:'string'}, maxItems:3}}, required:['ids']}, execute:({ids}) => { const ok = (ids || []).filter(i => by[i]).slice(0, 3); if (cur){ let m = cur.nextElementSibling?.classList.contains('mini') ? cur.nextElementSibling : null; if (!m){ m = document.createElement('div'); m.className = 'mini'; cur.after(m); } m.innerHTML = ok.map(i => pickRow(by[i])).join(''); } return {shown: ok.length}; }},
+  {name:'add_to_cart', description:'Add products to the customer bag. Only when the customer asks.', inputSchema:{type:'object', properties:{ids:{type:'array', items:{type:'string'}}}, required:['ids']}, execute:({ids}) => { const ok = (ids || []).filter(i => by[i]); ok.forEach(i => addItem(i)); return {added: ok.length, bag_subtotal_egp: subtotal()}; }}
 ];
 function fallback(text){
   const t = text.toLowerCase(); const g = /نشف|حرق|تخس|lean|cut|burn/.test(t) ? 'cut' : /قوة|طاقة|power|pre|بري/.test(t) ? 'power' : /استشفاء|recover|أمينو|amino/.test(t) ? 'rec' : /صحة|فيتامين|health|vitamin/.test(t) ? 'health' : 'bulk';
@@ -606,28 +839,30 @@ async function send(text){
   busy = true; hist.push({role: 'user', content: text}); renderSugg(); bubble('me', text);
   cur = bubble('ai', L('Thinking…', 'بفكّر…'));
   try{
-    if (!sampleReady){ sample = await Promise.race([claude.use('sample'), new Promise(r => setTimeout(() => r(null), 11000))]).catch(() => null); sampleReady = true; }
+    if (!sampleReady){ sample = await Promise.race([window.claude && claude.use ? claude.use('sample') : Promise.resolve(null), new Promise(r => setTimeout(() => r(null), 11000))]).catch(() => null); sampleReady = true; }
     if (!sample) throw {code: 'unavailable'};
     const msgs = hist.map((m, i) => i === 0 ? {role: 'user', content: SYS + '\n\nCustomer: ' + m.content} : m);
     const r = await sample(msgs, {tools: TOOLS, cache: false, onText: ({text}) => { if (text){ cur.textContent = text; $('#chat').scrollTop = 1e6; } }});
     cur.textContent = r.text || cur.textContent; hist.push({role: 'assistant', content: r.text || ''});
   }catch(e){
     if (e && e.code === 'rate_limited'){ cur.textContent = L('Busy right now, try again in a minute.', 'في ضغط دلوقتي، جرّب كمان دقيقة.'); hist.pop(); }
-    else { const f = fallback(text); cur.textContent = f.text; const m = document.createElement('div'); m.className = 'mini'; m.innerHTML = f.ids.map(i => pickRow(by[i])).join(''); cur.appendChild(m); hist.push({role: 'assistant', content: f.text}); $('#coachNote').textContent = L('The coach runs on AI when this page is opened in Claude.', 'المساعد بيشتغل بالذكاء الاصطناعي لما الصفحة تتفتح من Claude.'); }
+    else { const f = fallback(text); cur.textContent = f.text; const m = document.createElement('div'); m.className = 'mini'; m.innerHTML = f.ids.map(i => pickRow(by[i])).join(''); cur.after(m); hist.push({role: 'assistant', content: f.text}); $('#coachNote').textContent = L('The coach runs on AI when this page is opened in Claude.', 'المساعد بيشتغل بالذكاء الاصطناعي لما الصفحة تتفتح من Claude.'); }
   }
   $('#chat').scrollTop = 1e6; busy = false;
 }
-$('#ask').addEventListener('submit', e => { e.preventDefault(); const v = $('#askIn').value; $('#askIn').value = ''; send(v); });
+$('#ask').addEventListener('submit', e => { e.preventDefault(); const v = $('#askIn').value; $('#askIn').value = ''; $('#askIn').blur(); send(v); });
 
-/* S3 Black card tilt */
+/* ---------- S3 Black ---------- */
 const mc = $('#mcard');
 mc.parentElement.addEventListener('pointermove', e => { if (e.pointerType !== 'mouse') return; const r = mc.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; mc.style.transform = `rotateY(${x * 14}deg) rotateX(${-y * 14}deg)`; });
 mc.parentElement.addEventListener('pointerleave', () => { mc.style.transform = ''; });
 $('#wait').addEventListener('submit', e => { e.preventDefault(); $('#wok').textContent = L('Thanks ' + $('#wn').value.trim() + '. This is a prototype, so nothing was sent.', 'شكرًا ' + $('#wn').value.trim() + '. ده نموذج تجريبي، فمفيش بيانات اتبعتت لحد.'); e.target.reset(); });
 
-function renderAll(){ chrome(); buildReel(); renderGoals(); renderShop(); renderQuiz(); renderCart(); if (!hist.length) welcome(); else renderSugg(); }
-if (store.get('s3lang2', 'en') === 'ar'){ lang = 'ar'; document.documentElement.lang = 'ar'; document.documentElement.dir = 'rtl'; }
-renderAll(); raf = requestAnimationFrame(tick);
+function renderAll(){ chrome(); buildReel(); renderGoals(); renderShop(); renderQuiz(); onBag(); if (!hist.length) welcome(); else renderSugg(); if ($('#bag').open) renderBag(); }
+try{
+  document.documentElement.lang = lang; document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  renderAll(); requestAnimationFrame(tick);
+}catch(err){ console.error('S3 init failed', err); }
 }
 </script>
 </body>
